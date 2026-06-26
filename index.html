@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PuckPro Media | The Hockey Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700;900&family=Wix+Madefor+Display:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #111111;
+    --white: #FFFFFF;
+    --offwhite: #F5F5F5;
+    --grey: #E8E8E8;
+    --darkgrey: #444444;
+    --muted: #888888;
+    --border: #DCDCDC;
+  }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hr-hero {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 72px 24px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hr-hero::before {
+    content: 'HR';
+    position: absolute;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 900;
+    font-size: clamp(180px, 30vw, 420px);
+    color: rgba(255,255,255,0.03);
+    letter-spacing: -0.05em;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .hr-logo-wrap {
+    margin-bottom: 36px;
+    position: relative;
+    z-index: 1;
+  }
+  .hr-logo-wrap img {
+    height: 80px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+  .hr-eyebrow {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+  .hr-hero h1 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .hr-hero-sub {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+
+
+  /* ── PROMO BANNER ── */
+  .hr-banner {
+    background: var(--black);
+    border-top: 1px solid #2A2A2A;
+    color: var(--white);
+    text-align: center;
+    padding: 14px 20px;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── SECTIONS ── */
+  .hr-section { padding: 80px 24px; }
+  .hr-section-dark { background: var(--black); color: var(--white); }
+  .hr-section-light { background: var(--offwhite); }
+  .hr-container { max-width: 1060px; margin: 0 auto; }
+
+  .hr-eyebrow-sm {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .hr-section-title {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: clamp(34px, 5vw, 58px);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .hr-section-body {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 16px;
+    color: var(--darkgrey);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+  .hr-section-dark .hr-section-body { color: rgba(255,255,255,0.55); }
+  .hr-section-dark .hr-eyebrow-sm { color: rgba(255,255,255,0.4); }
+
+  /* ── PRICING (above features) ── */
+  .hr-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 52px;
+  }
+  .hr-plan {
+    background: var(--white);
+    padding: 36px 28px 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  .hr-plan.hr-featured {
+    background: var(--black);
+    color: var(--white);
+    border-top: 3px solid var(--darkgrey);
+  }
+  .hr-plan-badge {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .hr-featured .hr-plan-badge { color: rgba(255,255,255,0.45); }
+  .hr-plan-name {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+  .hr-plan-desc {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .hr-featured .hr-plan-desc { color: rgba(255,255,255,0.45); }
+  .hr-plan-price {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .hr-plan-price sup { font-size: 22px; vertical-align: super; }
+  .hr-plan-freq {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .hr-featured .hr-plan-freq { color: rgba(255,255,255,0.4); }
+  .hr-divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 24px;
+  }
+  .hr-featured .hr-divider { background: #2A2A2A; }
+  .hr-plan-list {
+    list-style: none;
+    flex: 1;
+    margin-bottom: 28px;
+  }
+  .hr-plan-list li {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 13px;
+    color: #444;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    line-height: 1.45;
+  }
+  .hr-featured .hr-plan-list li {
+    color: rgba(255,255,255,0.8);
+    border-bottom-color: rgba(255,255,255,0.12);
+  }
+  .hr-plan-list li::before {
+    content: '-';
+    color: var(--muted);
+    flex-shrink: 0;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .hr-featured .hr-plan-list li::before { color: rgba(255,255,255,0.3); }
+
+  .hr-btn {
+    display: block;
+    text-align: center;
+    padding: 13px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.18s;
+    cursor: pointer;
+  }
+  .hr-btn-outline {
+    border: 1px solid var(--border);
+    color: var(--black);
+    background: transparent;
+  }
+  .hr-btn-outline:hover { border-color: var(--black); background: var(--offwhite); }
+  .hr-btn-fill {
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--white);
+  }
+  .hr-btn-fill:hover { background: var(--grey); }
+
+  /* ── ADDON ── */
+  .hr-addon {
+    margin-top: 20px;
+    border: 1px solid var(--border);
+    padding: 22px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    background: var(--white);
+  }
+  .hr-addon strong {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 4px;
+    color: var(--black);
+  }
+  .hr-addon p {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .hr-addon-price {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    white-space: nowrap;
+    color: var(--black);
+  }
+  .hr-addon-price span {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  /* ── FEATURES GRID ── */
+  .hr-features-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+  .hr-example-link {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 2px;
+    white-space: nowrap;
+    transition: opacity 0.18s;
+  }
+  .hr-example-link:hover { opacity: 0.55; }
+
+  /* Example thumbnails */
+  .hr-examples {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 28px;
+    margin-bottom: 0;
+  }
+  .hr-example-card {
+    background: var(--white);
+    padding: 28px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    color: var(--black);
+    transition: background 0.18s;
+  }
+  .hr-example-card:hover { background: var(--offwhite); }
+  .hr-example-thumb {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--grey);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--darkgrey);
+    overflow: hidden;
+  }
+  .hr-example-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .hr-example-info {}
+  .hr-example-name {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .hr-example-meta {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .hr-example-arrow {
+    margin-left: auto;
+    font-size: 18px;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .hr-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  .hr-feature {
+    background: var(--white);
+    padding: 32px 28px;
+    transition: background 0.18s;
+  }
+  .hr-feature:hover { background: var(--offwhite); }
+  .hr-feat-num {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .hr-feature h3 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+    color: var(--black);
+  }
+  .hr-feature p {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 14px;
+    color: var(--darkgrey);
+    line-height: 1.65;
+  }
+
+  /* ── PROCESS ── */
+  .hr-process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+    margin-top: 52px;
+  }
+  .hr-step-num {
+    font-family: 'Kanit', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.12);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .hr-process-item h4 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+  .hr-process-item p {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+  }
+
+  /* ── FINAL CTA ── */
+  .hr-final {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 24px;
+  }
+  .hr-final h2 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: clamp(38px, 6vw, 72px);
+    text-transform: uppercase;
+    line-height: 0.95;
+    margin-bottom: 20px;
+  }
+  .hr-final p {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    max-width: 440px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+  .hr-final a {
+    display: inline-block;
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 15px 44px;
+    text-decoration: none;
+    transition: opacity 0.18s;
+  }
+  .hr-final a:hover { opacity: 0.85; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    .hr-hero {
+      padding: 58px 20px 52px;
+    }
+
+    .hr-logo-wrap img {
+      height: 68px;
+      max-width: 82vw;
+    }
+
+    .hr-eyebrow {
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      letter-spacing: 0.14em;
+      line-height: 1.5;
+    }
+
+    .hr-hero-sub {
+      margin-bottom: 34px;
+    }
+
+    .hr-banner {
+      font-size: 12px;
+      line-height: 1.5;
+      letter-spacing: 0.06em;
+    }
+
+    .hr-pricing-grid { grid-template-columns: 1fr; }
+    .hr-features { grid-template-columns: repeat(2, 1fr); }
+    .hr-process { grid-template-columns: repeat(2, 1fr); }
+    .hr-examples { grid-template-columns: 1fr; }
+
+    .hr-plan {
+      padding: 32px 24px;
+    }
+
+    .hr-btn {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hr-features { grid-template-columns: 1fr; }
+    .hr-process { grid-template-columns: 1fr; }
+
+    body {
+      font-size: 15px;
+    }
+
+    .hr-hero {
+      padding: 44px 16px 42px;
+    }
+
+    .hr-hero::before {
+      font-size: 190px;
+    }
+
+    .hr-logo-wrap {
+      margin-bottom: 28px;
+    }
+
+    .hr-logo-wrap img {
+      height: 56px;
+    }
+
+    .hr-eyebrow,
+    .hr-eyebrow-sm {
+      letter-spacing: 0.12em;
+    }
+
+    .hr-hero h1 {
+      font-size: 46px;
+      line-height: 0.96;
+    }
+
+    .hr-hero-sub {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .hr-section {
+      padding: 52px 16px;
+    }
+
+    .hr-section-title {
+      font-size: 36px;
+      line-height: 1.02;
+    }
+
+    .hr-section-body {
+      font-size: 15px;
+    }
+
+    .hr-pricing-grid,
+    .hr-features,
+    .hr-examples {
+      margin-top: 32px;
+    }
+
+    .hr-plan {
+      padding: 28px 20px;
+    }
+
+    .hr-plan-name {
+      font-size: 25px;
+    }
+
+    .hr-plan-price {
+      font-size: 46px;
+    }
+
+    .hr-addon {
+      align-items: flex-start;
+      padding: 20px;
+    }
+
+    .hr-addon-price {
+      width: 100%;
+      font-size: 24px;
+    }
+
+    .hr-features-header {
+      display: block;
+    }
+
+    .hr-example-link {
+      display: inline-block;
+      margin-top: 18px;
+      white-space: normal;
+    }
+
+    .hr-feature {
+      padding: 28px 20px;
+    }
+
+    .hr-feature h3 {
+      font-size: 21px;
+    }
+
+    .hr-example-card {
+      align-items: flex-start;
+      gap: 14px;
+      padding: 22px 18px;
+    }
+
+    .hr-example-thumb {
+      width: 48px;
+      height: 48px;
+      font-size: 16px;
+    }
+
+    .hr-example-name {
+      font-size: 16px;
+    }
+
+    .hr-example-arrow {
+      padding-top: 2px;
+    }
+
+    .hr-process {
+      gap: 28px;
+      margin-top: 36px;
+    }
+
+    .hr-step-num {
+      font-size: 38px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .hr-hero h1 {
+      font-size: 40px;
+    }
+
+    .hr-section-title {
+      font-size: 32px;
+    }
+
+    .hr-plan,
+    .hr-feature,
+    .hr-example-card,
+    .hr-addon {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .hr-example-card {
+      gap: 12px;
+    }
+  }
+
+  /* ── REVEAL ── */
+  .hr-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .hr-reveal.hr-visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<div class="hr-hero">
+  <div class="hr-logo-wrap hr-reveal">
+    <img
+      src="https://static.wixstatic.com/media/3bd810_119617a64ff1464b966999b6c6859d4a~mv2.png/v1/fill/w_304,h_154,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ppm%20png_edited.png"
+      alt="PuckPro Media"
+    />
+  </div>
+  <p class="hr-eyebrow hr-reveal">$300 Setup Fee Waived for Existing Customers — June 2026 Only</p>
+  <h1 class="hr-reveal">The Hockey<br>Résumé</h1>
+  <p class="hr-hero-sub hr-reveal">A complete digital profile designed to grow with your player season after season.</p>
+
+
+</div>
+
+<!-- ═══════════════ PROMO BANNER ═══════════════ -->
+<div class="hr-banner">
+  $300 setup fee waived for existing customers — June 2026 only
+</div>
+
+<!-- ═══════════════ PRICING ═══════════════ -->
+<div class="hr-section" id="hr-pricing">
+  <div class="hr-container">
+    <div class="hr-reveal">
+      <p class="hr-eyebrow-sm">Plans & Pricing</p>
+      <h2 class="hr-section-title">Choose your level</h2>
+      <p class="hr-section-body">All plans include your Hockey Résumé setup, monthly hosting, and ongoing maintenance. Cancel anytime.</p>
+    </div>
+
+    <div class="hr-pricing-grid hr-reveal">
+
+      <div class="hr-plan">
+        <p class="hr-plan-badge">Starter</p>
+        <div class="hr-plan-name">Maintenance</div>
+        <p class="hr-plan-desc">Keep your résumé current with monthly updates.</p>
+        <div class="hr-plan-price"><sup>$</sup>34</div>
+        <div class="hr-plan-freq">per month</div>
+        <div class="hr-divider"></div>
+        <ul class="hr-plan-list">
+          <li>Monthly hosting</li>
+          <li>Highlights added once per month (end-of-month batch update)</li>
+          <li>Stats updated monthly</li>
+          <li>One timeline entry</li>
+        </ul>
+        <a href="https://buy.stripe.com/eVq8wQdfbeu80xR5dUeUU3H" target="_blank" class="hr-btn hr-btn-outline">Sign Up →</a>
+      </div>
+
+      <div class="hr-plan hr-featured">
+        <p class="hr-plan-badge">Most Popular</p>
+        <div class="hr-plan-name">Next Level</div>
+        <p class="hr-plan-desc">More updates, more visibility, more momentum.</p>
+        <div class="hr-plan-price"><sup>$</sup>97</div>
+        <div class="hr-plan-freq">per month</div>
+        <div class="hr-divider"></div>
+        <ul class="hr-plan-list">
+          <li>Monthly hosting</li>
+          <li>Highlights added twice per month</li>
+          <li>Stats updated monthly</li>
+          <li>One timeline entry</li>
+          <li>Player profile section updated with new videos that fit described skillset</li>
+          <li>One training session edited + added to training section</li>
+          <li>Outside the Rink & academic sections updated</li>
+        </ul>
+        <a href="https://buy.stripe.com/eVqaEY2Ax0Di1BV6hYeUU3I" target="_blank" class="hr-btn hr-btn-fill">Sign Up →</a>
+      </div>
+
+      <div class="hr-plan">
+        <p class="hr-plan-badge">Elite</p>
+        <div class="hr-plan-name">Full Stack</div>
+        <p class="hr-plan-desc">An updated Recruiting Video every month to keep your resume fresh. Nothing left out.</p>
+        <div class="hr-plan-price"><sup>$</sup>419</div>
+        <div class="hr-plan-freq">per month</div>
+        <div class="hr-divider"></div>
+        <ul class="hr-plan-list">
+          <li>Monthly hosting</li>
+          <li>Highlights added weekly</li>
+          <li>Stats updated monthly</li>
+          <li>One timeline entry</li>
+          <li>Player profile section updated with new videos that fit described skillset</li>
+          <li>Two training sessions edited + added to training section</li>
+          <li>One full Recruiting Highlight Video per month</li>
+          <li>4 edited social media posts per month</li>
+          <li>Outside the Rink & academic sections updated</li>
+          <li>Priority editing turnaround (72h)</li>
+        </ul>
+        <a href="https://buy.stripe.com/dRmcN66QN85K6WfeOueUU3J" target="_blank" class="hr-btn hr-btn-outline">Sign Up →</a>
+      </div>
+
+    </div>
+
+    <div class="hr-addon hr-reveal">
+      <div>
+        <strong>Add-On: Custom Domain</strong>
+        <p>Give your athlete a shareable professional URL — like gianlucatrazzera.com — instead of a generic link. Option available in onboarding email after checkout.</p>
+      </div>
+      <div class="hr-addon-price">$25 <span>/ year</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ WHAT'S INSIDE ═══════════════ -->
+<div class="hr-section hr-section-light">
+  <div class="hr-container">
+
+    <div class="hr-features-header hr-reveal">
+      <div>
+        <p class="hr-eyebrow-sm">What's Inside</p>
+        <h2 class="hr-section-title">Every section<br>tells the story</h2>
+        <p class="hr-section-body">We build and maintain six sections that work together to provide a complete picture of your athlete.</p>
+      </div>
+      <a href="#hr-examples" class="hr-example-link">View Examples ↓</a>
+    </div>
+
+    <div class="hr-features hr-reveal">
+      <div class="hr-feature">
+        <p class="hr-feat-num">01</p>
+        <h3>Identity</h3>
+        <p>Vital stats, physical metrics, and quick-link buttons to game film, academics, and Elite Prospects — all in one instantly legible card.</p>
+      </div>
+      <div class="hr-feature">
+        <p class="hr-feat-num">02</p>
+        <h3>Highlights</h3>
+        <p>The résumé is built around your videos. We'll showcase key moments from all of your game film, giving coaches a frictionless snapshot into your skillset.</p>
+      </div>
+      <div class="hr-feature">
+        <p class="hr-feat-num">03</p>
+        <h3>Characteristics</h3>
+        <p>Hockey IQ, compete level, puck possession — each trait linked directly to supporting video. Words backed by proof, built to show what role you fill on a team.</p>
+      </div>
+      <div class="hr-feature">
+        <p class="hr-feat-num">04</p>
+        <h3>Training</h3>
+        <p>Behind-the-scenes documentation of your athlete's work ethic and commitment — one of the strongest signals a recruiter can see.</p>
+      </div>
+      <div class="hr-feature">
+        <p class="hr-feat-num">05</p>
+        <h3>Extra-Curriculars</h3>
+        <p>Who is your athlete off the ice? This section shows coaches the character and locker-room chemistry behind the player.</p>
+      </div>
+      <div class="hr-feature">
+        <p class="hr-feat-num">06</p>
+        <h3>Timeline</h3>
+        <p>A living news feed built to show your progress over time with recent results & milestones, so the profile is always current. Look back over time to see the progress you've made.</p>
+      </div>
+    </div>
+
+    <!-- EXAMPLES -->
+    <div id="hr-examples" style="margin-top: 52px;" class="hr-reveal">
+      <p class="hr-eyebrow-sm">Live Examples</p>
+      <h3 style="font-family:'Kanit',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;margin-bottom:4px;">See it in action</h3>
+      <p style="font-family:'Wix Madefor Display',sans-serif;font-size:14px;color:var(--muted);margin-bottom:0;">Click either profile below to see a real Hockey Résumé.</p>
+    </div>
+
+    <div class="hr-examples hr-reveal">
+      <!-- EXAMPLE 1 — replace href and details when you have the URL -->
+      <a href="https://www.gianlucasantinotrazzera.com/" target="_blank" class="hr-example-card">
+        <div class="hr-example-thumb">GT</div>
+        <div class="hr-example-info">
+          <div class="hr-example-name">Gianluca Trazzera</div>
+          <div class="hr-example-meta">Defense · Long Island Gulls 15UAA</div>
+        </div>
+        <span class="hr-example-arrow">→</span>
+      </a>
+      <!-- EXAMPLE 2 — replace href and details when you have the URL -->
+      <a href="https://profile.puckpromedia.com/massimo-didonna" target="_blank" class="hr-example-card">
+        <div class="hr-example-thumb">MD</div>
+        <div class="hr-example-info">
+          <div class="hr-example-name">Massimo DiDonna</div>
+          <div class="hr-example-meta">Forward · NJ Titans 2013 AAA</div>
+        </div>
+        <span class="hr-example-arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+<div class="hr-section hr-section-dark">
+  <div class="hr-container">
+    <div class="hr-reveal">
+      <p class="hr-eyebrow-sm">The Process</p>
+      <h2 class="hr-section-title">We handle<br>everything</h2>
+      <p class="hr-section-body">After you sign up, we take it from there. No tech setup, no platform to learn.</p>
+    </div>
+
+    <div class="hr-process hr-reveal">
+      <div class="hr-process-item">
+        <div class="hr-step-num">01</div>
+        <h4>Sign Up</h4>
+        <p>Choose your plan and complete checkout. You'll receive an onboarding form within 24 hours to tell us about your athlete.</p>
+      </div>
+      <div class="hr-process-item">
+        <div class="hr-step-num">02</div>
+        <h4>We Build It</h4>
+        <p>Our team builds every section of your athlete's Hockey Résumé — professional, polished, and ready to share.</p>
+      </div>
+      <div class="hr-process-item">
+        <div class="hr-step-num">03</div>
+        <h4>We Keep It Current</h4>
+        <p>Every month we update stats, highlights, and sections so the profile is always recruiter-ready.</p>
+      </div>
+      <div class="hr-process-item">
+        <div class="hr-step-num">04</div>
+        <h4>You Share It</h4>
+        <p>Send the link to scouts, coaches, and programs. One URL. One professional impression.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  (function() {
+    var els = document.querySelectorAll('.hr-reveal');
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry, i) {
+        if (entry.isIntersecting) {
+          setTimeout(function() {
+            entry.target.classList.add('hr-visible');
+          }, i * 55);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    els.forEach(function(el) { obs.observe(el); });
+  })();
+</script>
+</body>
+</html>
