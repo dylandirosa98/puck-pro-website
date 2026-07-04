@@ -1143,6 +1143,10 @@ a { text-decoration: none; }
 
 
 @media (min-width: 769px) {
+  .work-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .work-grid .social-short-card {
     grid-column: 1 / -1;
     display: grid;
