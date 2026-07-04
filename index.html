@@ -1,930 +1,492 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PuckPro Media | The Hockey Resume</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700;900&family=Wix+Madefor+Display:wght@400;500;600&display=swap');
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --black: #111111;
-    --white: #FFFFFF;
-    --offwhite: #F5F5F5;
-    --grey: #E8E8E8;
-    --darkgrey: #444444;
-    --muted: #888888;
-    --border: #DCDCDC;
-  }
-
-  body {
-    background: var(--white);
-    color: var(--black);
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── HERO ── */
-  .hr-hero {
-    background: var(--black);
-    color: var(--white);
-    text-align: center;
-    padding: 72px 24px 64px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hr-hero::before {
-    content: 'HR';
-    position: absolute;
-    font-family: 'Kanit', sans-serif;
-    font-weight: 900;
-    font-size: clamp(180px, 30vw, 420px);
-    color: rgba(255,255,255,0.03);
-    letter-spacing: -0.05em;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-  }
-  .hr-logo-wrap {
-    margin-bottom: 36px;
-    position: relative;
-    z-index: 1;
-  }
-  .hr-logo-wrap img {
-    height: 80px;
-    width: auto;
-    filter: brightness(0) invert(1);
-  }
-  .hr-eyebrow {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 18px;
-    position: relative;
-    z-index: 1;
-  }
-  .hr-hero h1 {
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: clamp(48px, 8vw, 96px);
-    line-height: 0.92;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-  }
-  .hr-hero-sub {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 17px;
-    color: rgba(255,255,255,0.6);
-    max-width: 500px;
-    margin: 0 auto 48px;
-    line-height: 1.7;
-    position: relative;
-    z-index: 1;
-  }
-
-
-
-  /* ── PROMO BANNER ── */
-  .hr-banner {
-    background: var(--black);
-    border-top: 1px solid #2A2A2A;
-    color: var(--white);
-    text-align: center;
-    padding: 14px 20px;
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  /* ── SECTIONS ── */
-  .hr-section { padding: 80px 24px; }
-  .hr-section-dark { background: var(--black); color: var(--white); }
-  .hr-section-light { background: var(--offwhite); }
-  .hr-container { max-width: 1060px; margin: 0 auto; }
-
-  .hr-eyebrow-sm {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 14px;
-  }
-  .hr-section-title {
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: clamp(34px, 5vw, 58px);
-    text-transform: uppercase;
-    line-height: 1;
-    margin-bottom: 16px;
-  }
-  .hr-section-body {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 16px;
-    color: var(--darkgrey);
-    max-width: 520px;
-    line-height: 1.7;
-  }
-  .hr-section-dark .hr-section-body { color: rgba(255,255,255,0.55); }
-  .hr-section-dark .hr-eyebrow-sm { color: rgba(255,255,255,0.4); }
-
-  /* ── PRICING (above features) ── */
-  .hr-pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-top: 52px;
-  }
-  .hr-plan {
-    background: var(--white);
-    padding: 36px 28px 32px;
-    display: flex;
-    flex-direction: column;
-  }
-  .hr-plan.hr-featured {
-    background: var(--black);
-    color: var(--white);
-    border-top: 3px solid var(--darkgrey);
-  }
-  .hr-plan-badge {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-  .hr-featured .hr-plan-badge { color: rgba(255,255,255,0.45); }
-  .hr-plan-name {
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    margin-bottom: 4px;
-  }
-  .hr-plan-desc {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 16px;
-    line-height: 1.5;
-  }
-  .hr-featured .hr-plan-desc { color: rgba(255,255,255,0.45); }
-  .hr-plan-price {
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: 52px;
-    line-height: 1;
-    margin-bottom: 2px;
-  }
-  .hr-plan-price sup { font-size: 22px; vertical-align: super; }
-  .hr-plan-freq {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 24px;
-  }
-  .hr-featured .hr-plan-freq { color: rgba(255,255,255,0.4); }
-  .hr-divider {
-    height: 1px;
-    background: var(--border);
-    margin-bottom: 24px;
-  }
-  .hr-featured .hr-divider { background: #2A2A2A; }
-  .hr-plan-list {
-    list-style: none;
-    flex: 1;
-    margin-bottom: 28px;
-  }
-  .hr-plan-list li {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 13px;
-    color: #444;
-    padding: 7px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    display: flex;
-    align-items: flex-start;
-    gap: 9px;
-    line-height: 1.45;
-  }
-  .hr-featured .hr-plan-list li {
-    color: rgba(255,255,255,0.8);
-    border-bottom-color: rgba(255,255,255,0.12);
-  }
-  .hr-plan-list li::before {
-    content: '-';
-    color: var(--muted);
-    flex-shrink: 0;
-    font-size: 11px;
-    margin-top: 2px;
-  }
-  .hr-featured .hr-plan-list li::before { color: rgba(255,255,255,0.3); }
-
-  .hr-btn {
-    display: block;
-    text-align: center;
-    padding: 13px;
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.18s;
-    cursor: pointer;
-  }
-  .hr-btn-outline {
-    border: 1px solid var(--border);
-    color: var(--black);
-    background: transparent;
-  }
-  .hr-btn-outline:hover { border-color: var(--black); background: var(--offwhite); }
-  .hr-btn-fill {
-    background: var(--white);
-    color: var(--black);
-    border: 1px solid var(--white);
-  }
-  .hr-btn-fill:hover { background: var(--grey); }
-
-  /* ── ADDON ── */
-  .hr-addon {
-    margin-top: 20px;
-    border: 1px solid var(--border);
-    padding: 22px 26px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-    background: var(--white);
-  }
-  .hr-addon strong {
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    display: block;
-    margin-bottom: 4px;
-    color: var(--black);
-  }
-  .hr-addon p {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 13px;
-    color: var(--muted);
-  }
-  .hr-addon-price {
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: 26px;
-    white-space: nowrap;
-    color: var(--black);
-  }
-  .hr-addon-price span {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 400;
-  }
-
-  /* ── FEATURES GRID ── */
-  .hr-features-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 0;
-  }
-  .hr-example-link {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--black);
-    text-decoration: none;
-    border-bottom: 1px solid var(--black);
-    padding-bottom: 2px;
-    white-space: nowrap;
-    transition: opacity 0.18s;
-  }
-  .hr-example-link:hover { opacity: 0.55; }
-
-  /* Example thumbnails */
-  .hr-examples {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-top: 28px;
-    margin-bottom: 0;
-  }
-  .hr-example-card {
-    background: var(--white);
-    padding: 28px 24px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    text-decoration: none;
-    color: var(--black);
-    transition: background 0.18s;
-  }
-  .hr-example-card:hover { background: var(--offwhite); }
-  .hr-example-thumb {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--grey);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: var(--darkgrey);
-    overflow: hidden;
-  }
-  .hr-example-thumb img { width: 100%; height: 100%; object-fit: cover; }
-  .hr-example-info {}
-  .hr-example-name {
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    text-transform: uppercase;
-    line-height: 1.1;
-    margin-bottom: 4px;
-  }
-  .hr-example-meta {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 12px;
-    color: var(--muted);
-  }
-  .hr-example-arrow {
-    margin-left: auto;
-    font-size: 18px;
-    color: var(--muted);
-    flex-shrink: 0;
-  }
-
-  .hr-features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-top: 40px;
-  }
-  .hr-feature {
-    background: var(--white);
-    padding: 32px 28px;
-    transition: background 0.18s;
-  }
-  .hr-feature:hover { background: var(--offwhite); }
-  .hr-feat-num {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    color: var(--muted);
-    margin-bottom: 10px;
-  }
-  .hr-feature h3 {
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    margin-bottom: 10px;
-    color: var(--black);
-  }
-  .hr-feature p {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 14px;
-    color: var(--darkgrey);
-    line-height: 1.65;
-  }
-
-  /* ── PROCESS ── */
-  .hr-process {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 36px;
-    margin-top: 52px;
-  }
-  .hr-step-num {
-    font-family: 'Kanit', sans-serif;
-    font-size: 44px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.12);
-    line-height: 1;
-    margin-bottom: 10px;
-  }
-  .hr-process-item h4 {
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
-    color: var(--white);
-  }
-  .hr-process-item p {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.65;
-  }
-
-  /* ── FINAL CTA ── */
-  .hr-final {
-    background: var(--black);
-    color: var(--white);
-    text-align: center;
-    padding: 80px 24px;
-  }
-  .hr-final h2 {
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: clamp(38px, 6vw, 72px);
-    text-transform: uppercase;
-    line-height: 0.95;
-    margin-bottom: 20px;
-  }
-  .hr-final p {
-    font-family: 'Wix Madefor Display', sans-serif;
-    font-size: 16px;
-    color: rgba(255,255,255,0.6);
-    max-width: 440px;
-    margin: 0 auto 36px;
-    line-height: 1.6;
-  }
-  .hr-final a {
-    display: inline-block;
-    background: var(--white);
-    color: var(--black);
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-    font-size: 17px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 15px 44px;
-    text-decoration: none;
-    transition: opacity 0.18s;
-  }
-  .hr-final a:hover { opacity: 0.85; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 860px) {
-    .hr-hero {
-      padding: 58px 20px 52px;
-    }
-
-    .hr-logo-wrap img {
-      height: 68px;
-      max-width: 82vw;
-    }
-
-    .hr-eyebrow {
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-      letter-spacing: 0.14em;
-      line-height: 1.5;
-    }
-
-    .hr-hero-sub {
-      margin-bottom: 34px;
-    }
-
-    .hr-banner {
-      font-size: 12px;
-      line-height: 1.5;
-      letter-spacing: 0.06em;
-    }
-
-    .hr-pricing-grid { grid-template-columns: 1fr; }
-    .hr-features { grid-template-columns: repeat(2, 1fr); }
-    .hr-process { grid-template-columns: repeat(2, 1fr); }
-    .hr-examples { grid-template-columns: 1fr; }
-
-    .hr-plan {
-      padding: 32px 24px;
-    }
-
-    .hr-btn {
-      min-height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  @media (max-width: 560px) {
-    .hr-features { grid-template-columns: 1fr; }
-    .hr-process { grid-template-columns: 1fr; }
-
-    body {
-      font-size: 15px;
-    }
-
-    .hr-hero {
-      padding: 44px 16px 42px;
-    }
-
-    .hr-hero::before {
-      font-size: 190px;
-    }
-
-    .hr-logo-wrap {
-      margin-bottom: 28px;
-    }
-
-    .hr-logo-wrap img {
-      height: 56px;
-    }
-
-    .hr-eyebrow,
-    .hr-eyebrow-sm {
-      letter-spacing: 0.12em;
-    }
-
-    .hr-hero h1 {
-      font-size: 46px;
-      line-height: 0.96;
-    }
-
-    .hr-hero-sub {
-      font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-
-    .hr-section {
-      padding: 52px 16px;
-    }
-
-    .hr-section-title {
-      font-size: 36px;
-      line-height: 1.02;
-    }
-
-    .hr-section-body {
-      font-size: 15px;
-    }
-
-    .hr-pricing-grid,
-    .hr-features,
-    .hr-examples {
-      margin-top: 32px;
-    }
-
-    .hr-plan {
-      padding: 28px 20px;
-    }
-
-    .hr-plan-name {
-      font-size: 25px;
-    }
-
-    .hr-plan-price {
-      font-size: 46px;
-    }
-
-    .hr-addon {
-      align-items: flex-start;
-      padding: 20px;
-    }
-
-    .hr-addon-price {
-      width: 100%;
-      font-size: 24px;
-    }
-
-    .hr-features-header {
-      display: block;
-    }
-
-    .hr-example-link {
-      display: inline-block;
-      margin-top: 18px;
-      white-space: normal;
-    }
-
-    .hr-feature {
-      padding: 28px 20px;
-    }
-
-    .hr-feature h3 {
-      font-size: 21px;
-    }
-
-    .hr-example-card {
-      align-items: flex-start;
-      gap: 14px;
-      padding: 22px 18px;
-    }
-
-    .hr-example-thumb {
-      width: 48px;
-      height: 48px;
-      font-size: 16px;
-    }
-
-    .hr-example-name {
-      font-size: 16px;
-    }
-
-    .hr-example-arrow {
-      padding-top: 2px;
-    }
-
-    .hr-process {
-      gap: 28px;
-      margin-top: 36px;
-    }
-
-    .hr-step-num {
-      font-size: 38px;
-    }
-  }
-
-  @media (max-width: 380px) {
-    .hr-hero h1 {
-      font-size: 40px;
-    }
-
-    .hr-section-title {
-      font-size: 32px;
-    }
-
-    .hr-plan,
-    .hr-feature,
-    .hr-example-card,
-    .hr-addon {
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-
-    .hr-example-card {
-      gap: 12px;
-    }
-  }
-
-  /* ── REVEAL ── */
-  .hr-reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.55s ease, transform 0.55s ease;
-  }
-  .hr-reveal.hr-visible { opacity: 1; transform: none; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Puck Pro Media | Hockey Videography & Recruiting Media</title>
+  <meta name="description" content="Professional hockey videography, video editing, and promotional media for youth hockey players. Helping players use video to get recruited." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
 
-<!-- ═══════════════ HERO ═══════════════ -->
-<div class="hr-hero">
-  <div class="hr-logo-wrap hr-reveal">
-    <img
-      src="https://static.wixstatic.com/media/3bd810_119617a64ff1464b966999b6c6859d4a~mv2.png/v1/fill/w_304,h_154,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ppm%20png_edited.png"
-      alt="PuckPro Media"
-    />
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/logo-white.png" alt="Puck Pro Media" />
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="/">Home</a>
+      <a href="/#our-work">Our Work</a>
+      <a href="/book/">Book Coverage</a>
+      <a href="/join/">Join Our Team</a>
+      <a href="/#contact">Contact Us</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <p class="hr-eyebrow hr-reveal">$300 Setup Fee Waived for Existing Customers — June 2026 Only</p>
-  <h1 class="hr-reveal">The Hockey<br>Résumé</h1>
-  <p class="hr-hero-sub hr-reveal">A complete digital profile designed to grow with your player season after season.</p>
-
-
-</div>
-
-<!-- ═══════════════ PROMO BANNER ═══════════════ -->
-<div class="hr-banner">
-  $300 setup fee waived for existing customers — June 2026 only
-</div>
-
-<!-- ═══════════════ PRICING ═══════════════ -->
-<div class="hr-section" id="hr-pricing">
-  <div class="hr-container">
-    <div class="hr-reveal">
-      <p class="hr-eyebrow-sm">Plans & Pricing</p>
-      <h2 class="hr-section-title">Choose your level</h2>
-      <p class="hr-section-body">All plans include your Hockey Résumé setup, monthly hosting, and ongoing maintenance. Cancel anytime.</p>
-    </div>
-
-    <div class="hr-pricing-grid hr-reveal">
-
-      <div class="hr-plan">
-        <p class="hr-plan-badge">Starter</p>
-        <div class="hr-plan-name">Maintenance</div>
-        <p class="hr-plan-desc">Keep your résumé current with monthly updates.</p>
-        <div class="hr-plan-price"><sup>$</sup>34</div>
-        <div class="hr-plan-freq">per month</div>
-        <div class="hr-divider"></div>
-        <ul class="hr-plan-list">
-          <li>Monthly hosting</li>
-          <li>Highlights added once per month (end-of-month batch update)</li>
-          <li>Stats updated monthly</li>
-          <li>One timeline entry</li>
-        </ul>
-        <a href="https://buy.stripe.com/eVq8wQdfbeu80xR5dUeUU3H" target="_blank" class="hr-btn hr-btn-outline">Sign Up →</a>
-      </div>
-
-      <div class="hr-plan hr-featured">
-        <p class="hr-plan-badge">Most Popular</p>
-        <div class="hr-plan-name">Next Level</div>
-        <p class="hr-plan-desc">More updates, more visibility, more momentum.</p>
-        <div class="hr-plan-price"><sup>$</sup>97</div>
-        <div class="hr-plan-freq">per month</div>
-        <div class="hr-divider"></div>
-        <ul class="hr-plan-list">
-          <li>Monthly hosting</li>
-          <li>Highlights added twice per month</li>
-          <li>Stats updated monthly</li>
-          <li>One timeline entry</li>
-          <li>Player profile section updated with new videos that fit described skillset</li>
-          <li>One training session edited + added to training section</li>
-          <li>Outside the Rink & academic sections updated</li>
-        </ul>
-        <a href="https://buy.stripe.com/eVqaEY2Ax0Di1BV6hYeUU3I" target="_blank" class="hr-btn hr-btn-fill">Sign Up →</a>
-      </div>
-
-      <div class="hr-plan">
-        <p class="hr-plan-badge">Elite</p>
-        <div class="hr-plan-name">Full Stack</div>
-        <p class="hr-plan-desc">An updated Recruiting Video every month to keep your resume fresh. Nothing left out.</p>
-        <div class="hr-plan-price"><sup>$</sup>419</div>
-        <div class="hr-plan-freq">per month</div>
-        <div class="hr-divider"></div>
-        <ul class="hr-plan-list">
-          <li>Monthly hosting</li>
-          <li>Highlights added weekly</li>
-          <li>Stats updated monthly</li>
-          <li>One timeline entry</li>
-          <li>Player profile section updated with new videos that fit described skillset</li>
-          <li>Two training sessions edited + added to training section</li>
-          <li>One full Recruiting Highlight Video per month</li>
-          <li>4 edited social media posts per month</li>
-          <li>Outside the Rink & academic sections updated</li>
-          <li>Priority editing turnaround (72h)</li>
-        </ul>
-        <a href="https://buy.stripe.com/dRmcN66QN85K6WfeOueUU3J" target="_blank" class="hr-btn hr-btn-outline">Sign Up →</a>
-      </div>
-
-    </div>
-
-    <div class="hr-addon hr-reveal">
-      <div>
-        <strong>Add-On: Custom Domain</strong>
-        <p>Give your athlete a shareable professional URL — like gianlucatrazzera.com — instead of a generic link. Option available in onboarding email after checkout.</p>
-      </div>
-      <div class="hr-addon-price">$25 <span>/ year</span></div>
-    </div>
-
+  <div class="nav-mobile" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="/#our-work">Our Work</a>
+    <a href="/book/">Book Coverage</a>
+    <a href="/join/">Join Our Team</a>
+    <a href="/#contact">Contact Us</a>
   </div>
-</div>
+</nav>
 
-<!-- ═══════════════ WHAT'S INSIDE ═══════════════ -->
-<div class="hr-section hr-section-light">
-  <div class="hr-container">
-
-    <div class="hr-features-header hr-reveal">
-      <div>
-        <p class="hr-eyebrow-sm">What's Inside</p>
-        <h2 class="hr-section-title">Every section<br>tells the story</h2>
-        <p class="hr-section-body">We build and maintain six sections that work together to provide a complete picture of your athlete.</p>
-      </div>
-      <a href="#hr-examples" class="hr-example-link">View Examples ↓</a>
+<!-- ── 1. HERO ──────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    
+    <h1 class="display hero-headline">HELPING PLAYERS USE VIDEO TO GET RECRUITED &amp; DEVELOP THEIR GAME.</h1>
+    <p class="hero-sub">Professional videography, video editing, and promotional media services for youth hockey.</p>
+    <div class="hero-btns">
+      <a href="/book/" class="btn-primary">Book Coverage</a>
     </div>
+  </div>
+  <div class="scroll-line"></div>
+</section>
 
-    <div class="hr-features hr-reveal">
-      <div class="hr-feature">
-        <p class="hr-feat-num">01</p>
-        <h3>Identity</h3>
-        <p>Vital stats, physical metrics, and quick-link buttons to game film, academics, and Elite Prospects — all in one instantly legible card.</p>
+<!-- ── 2. VALUE PROP ────────────────────────────── -->
+<section class="section-white">
+  <div class="container">
+    <div class="value-grid">
+      <div class="value-left">
+        <p class="label">What We Do</p>
+        <p class="display-dark" style="font-size:clamp(22px,3vw,36px);margin-bottom:20px;">Our 3 pillar process takes you from having nothing to send a coach, to a complete recruiting asset in less than a month.</p>
+        <p class="body-text" style="color:#555;">Professional high quality game film, a highlight video that clearly communicates the role you fill on a team, and a player profile that documents your progress and organizes everything into one central link.</p>
       </div>
-      <div class="hr-feature">
-        <p class="hr-feat-num">02</p>
-        <h3>Highlights</h3>
-        <p>The résumé is built around your videos. We'll showcase key moments from all of your game film, giving coaches a frictionless snapshot into your skillset.</p>
-      </div>
-      <div class="hr-feature">
-        <p class="hr-feat-num">03</p>
-        <h3>Characteristics</h3>
-        <p>Hockey IQ, compete level, puck possession — each trait linked directly to supporting video. Words backed by proof, built to show what role you fill on a team.</p>
-      </div>
-      <div class="hr-feature">
-        <p class="hr-feat-num">04</p>
-        <h3>Training</h3>
-        <p>Behind-the-scenes documentation of your athlete's work ethic and commitment — one of the strongest signals a recruiter can see.</p>
-      </div>
-      <div class="hr-feature">
-        <p class="hr-feat-num">05</p>
-        <h3>Extra-Curriculars</h3>
-        <p>Who is your athlete off the ice? This section shows coaches the character and locker-room chemistry behind the player.</p>
-      </div>
-      <div class="hr-feature">
-        <p class="hr-feat-num">06</p>
-        <h3>Timeline</h3>
-        <p>A living news feed built to show your progress over time with recent results & milestones, so the profile is always current. Look back over time to see the progress you've made.</p>
-      </div>
-    </div>
+      <div class="value-right">
 
-    <!-- EXAMPLES -->
-    <div id="hr-examples" style="margin-top: 52px;" class="hr-reveal">
-      <p class="hr-eyebrow-sm">Live Examples</p>
-      <h3 style="font-family:'Kanit',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;margin-bottom:4px;">See it in action</h3>
-      <p style="font-family:'Wix Madefor Display',sans-serif;font-size:14px;color:var(--muted);margin-bottom:0;">Click either profile below to see a real Hockey Résumé.</p>
-    </div>
-
-    <div class="hr-examples hr-reveal">
-      <!-- EXAMPLE 1 — replace href and details when you have the URL -->
-      <a href="https://www.gianlucasantinotrazzera.com/" target="_blank" class="hr-example-card">
-        <div class="hr-example-thumb">GT</div>
-        <div class="hr-example-info">
-          <div class="hr-example-name">Gianluca Trazzera</div>
-          <div class="hr-example-meta">Defense · Long Island Gulls 15UAA</div>
+        <!-- Pillar 1 -->
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <div class="pillar-body">
+            <p class="pillar-title">THE FILM</p>
+            <p class="pillar-text">Our videographers come to your games and capture every shift in 4K — the edgework, zone entries, decision making, compete level — all the small details that coaches actually evaluate.</p>
+          </div>
         </div>
-        <span class="hr-example-arrow">→</span>
-      </a>
-      <!-- EXAMPLE 2 — replace href and details when you have the URL -->
-      <a href="https://profile.puckpromedia.com/massimo-didonna" target="_blank" class="hr-example-card">
-        <div class="hr-example-thumb">MD</div>
-        <div class="hr-example-info">
-          <div class="hr-example-name">Massimo DiDonna</div>
-          <div class="hr-example-meta">Forward · NJ Titans 2013 AAA</div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <div class="pillar-body">
+            <p class="pillar-title">THE HIGHLIGHT VIDEO</p>
+            <p class="pillar-text">Our editors build your recruiting highlight video around your position-specific skillsets. We watch your shifts, identify what makes you valuable, and build a video that shows a coach exactly where you fit on a roster.</p>
+          </div>
         </div>
-        <span class="hr-example-arrow">→</span>
-      </a>
+
+        <!-- Pillar 3 -->
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <div class="pillar-body">
+            <p class="pillar-title">THE HOCKEY RÉSUMÉ</p>
+            <p class="pillar-text">We tie it all together with your Hockey Résumé — a digital player profile combining your videos, stats, characteristics, academics, training, and progress. We build it out completely and manage it so it grows with you over time. A coach can click one link and understand everything they need to know.</p>
+          </div>
+        </div>
+
+        <a href="#vsl" class="btn-dark" style="display:inline-block;margin-top:36px;">Watch This Video to Learn Our Whole Process</a>
+      </div>
     </div>
 
-  </div>
-</div>
-
-<!-- ═══════════════ HOW IT WORKS ═══════════════ -->
-<div class="hr-section hr-section-dark">
-  <div class="hr-container">
-    <div class="hr-reveal">
-      <p class="hr-eyebrow-sm">The Process</p>
-      <h2 class="hr-section-title">We handle<br>everything</h2>
-      <p class="hr-section-body">After you sign up, we take it from there. No tech setup, no platform to learn.</p>
-    </div>
-
-    <div class="hr-process hr-reveal">
-      <div class="hr-process-item">
-        <div class="hr-step-num">01</div>
-        <h4>Sign Up</h4>
-        <p>Choose your plan and complete checkout. You'll receive an onboarding form within 24 hours to tell us about your athlete.</p>
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat">
+        <p class="stat-num">4K VIDEO</p>
+        <p class="stat-desc">The highest quality footage, providing crystal clear detail of your game.</p>
       </div>
-      <div class="hr-process-item">
-        <div class="hr-step-num">02</div>
-        <h4>We Build It</h4>
-        <p>Our team builds every section of your athlete's Hockey Résumé — professional, polished, and ready to share.</p>
+      <div class="stat">
+        <p class="stat-num">100% SATISFACTION GUARANTEE</p>
+        <p class="stat-desc">An experience you're blown away by, or we make it right.</p>
       </div>
-      <div class="hr-process-item">
-        <div class="hr-step-num">03</div>
-        <h4>We Keep It Current</h4>
-        <p>Every month we update stats, highlights, and sections so the profile is always recruiter-ready.</p>
+      <div class="stat">
+        <p class="stat-num">FAST TURNAROUND</p>
+        <p class="stat-desc">Footage delivered in hours, not weeks.</p>
       </div>
-      <div class="hr-process-item">
-        <div class="hr-step-num">04</div>
-        <h4>You Share It</h4>
-        <p>Send the link to scouts, coaches, and programs. One URL. One professional impression.</p>
+      <div class="stat">
+        <p class="stat-num">10+ YEARS OF HOCKEY EXPERIENCE</p>
+        <p class="stat-desc">Built by players who've walked in your skates.</p>
       </div>
     </div>
   </div>
-</div>
+</section>
 
+<!-- ── 3. OUR WORK ──────────────────────────────── -->
+<section class="section-grey" id="our-work">
+  <div class="container">
+    <div class="section-header">
+      <p class="label">Individual Player Services</p>
+      <div class="section-header-row">
+        <h2 class="display-dark">OUR WORK</h2>
+        <a href="https://www.instagram.com/puckpro_media/" target="_blank" class="link-cta">See More on Instagram →</a>
+      </div>
+    </div>
+    <div class="work-grid">
 
+      <div class="work-card">
+        <div class="work-media">
+          <iframe
+            src="https://player.mux.com/po02NBFdsE6UPgQmC69N7u01WpzmFI853qvIes00ko15900"
+            style="width: 100%; border: none; aspect-ratio: 16/9;"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+            allowfullscreen
+            title="Hype Video"
+          ></iframe>
+        </div>
+        <div class="work-info">
+          <p class="work-tag">Hype Video</p>
+          <p class="work-desc">60 second mixtape style video with best plays from the game, slow mo, b roll, transitions, and music of your choice.</p>
+        </div>
+      </div>
 
+      <div class="work-card">
+        <div class="work-media">
+          <iframe
+            src="https://player.mux.com/1b6aixOWHVhx88RhLSrwm9ryCCgm87fQA74k7ozDOEo"
+            style="width: 100%; border: none; aspect-ratio: 16/9;"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+            allowfullscreen
+            title="Recruiting Video"
+          ></iframe>
+        </div>
+        <div class="work-info">
+          <p class="work-tag">Recruiting Video</p>
+          <p class="work-desc">3–5 minute highlight video with a custom intro (player info, stats, contact), organized by skill categories with slo-mo, clean transitions, and coach-friendly formatting.</p>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-media">
+          <a href="https://www.gianlucasantinotrazzera.com/" target="_blank" class="media-link has-thumbnail">
+            <img src="/hockey-resume-thumbnail.png" alt="Hockey Résumé example profile thumbnail for Gianluca Santino Trazzera" loading="lazy" />
+            <div class="play-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke-linecap="round"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke-linecap="round"/></svg>
+            </div>
+            <span>View Example</span>
+          </a>
+        </div>
+        <div class="work-info">
+          <p class="work-tag">Hockey Résumé</p>
+          <p class="work-desc">A complete digital profile designed to grow with your player season after season.</p>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-media">
+          <iframe
+            src="https://player.mux.com/CeMWQo8ilVwJKd3lgfFpYCzb8twtEt9d3lRSNIEnVSg"
+            style="width: 100%; border: none; aspect-ratio: 71/40;"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+            allowfullscreen
+            title="Social Clip"
+          ></iframe>
+        </div>
+        <div class="work-info">
+          <p class="work-tag">Social Media Shorts</p>
+          <p class="work-desc">10–20s highlight clips optimized for social media with text, slo mo, music, posted and collaborated with @puckpro_media on Instagram.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 4. REVIEWS ───────────────────────────────── -->
+<section class="section-black" id="reviews">
+  <div class="container">
+    <div class="section-header">
+      <p class="label-dim">What People Say</p>
+      <div class="section-header-row">
+        <h2 class="display-white">HEAR FROM OUR CUSTOMERS</h2>
+        <a href="https://share.google/9bX8CBJOKBlsXlqQY" target="_blank" class="link-cta-white">Read All Reviews on Google →</a>
+      </div>
+    </div>
+
+    <!-- Google rating summary -->
+    <div class="google-summary">
+      <svg class="google-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        <path fill="none" d="M0 0h48v48H0z"/>
+      </svg>
+      <div class="google-rating-info">
+        <span class="google-score">5.0</span>
+        <div class="google-stars-row">★★★★★</div>
+        <span class="google-count">57 Google Reviews</span>
+      </div>
+    </div>
+
+    <!-- Scrollable carousel -->
+    <div class="reviews-carousel-wrap">
+      <div class="reviews-carousel" id="reviewsCarousel">
+
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-avatar" style="background:#e8710a;">L</div>
+            <div class="reviewer-info">
+              <p class="reviewer-name">Luke Crooker</p>
+              <div class="google-card-stars">★★★★★</div>
+            </div>
+            <svg class="google-g" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <p class="review-text">"I had a great experience working with PuckPro. From the start, they were professional, organized, and the quality of the game footage was excellent. The angles were perfect, and I could clearly see every play, which really helped me break down my performance and grow as a player. After the first game, I knew I wanted to keep using their services—not only for my own development, but also to build a strong highlight reel. I’d definitely recommend them to any athlete looking to get serious about their game."</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-avatar" style="background:#1a73e8;">M</div>
+            <div class="reviewer-info">
+              <p class="reviewer-name">Michael Winsey</p>
+              <div class="google-card-stars">★★★★★</div>
+            </div>
+            <svg class="google-g" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <p class="review-text">"Jack and his team are amazing. He is prompt, flexible, and very knowledgeable. His finished product is extremely professional. He always seems to make the times work, even on short notice. I have used Puckpro several times and couldn’t be happier. Very easy to work with as well."</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-avatar" style="background:#a142f4;">M</div>
+            <div class="reviewer-info">
+              <p class="reviewer-name">Melissa Lore</p>
+              <div class="google-card-stars">★★★★★</div>
+            </div>
+            <svg class="google-g" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <p class="review-text">"Jack and his team of videographers did a great job on my son’s recruiting reel. Jack was incredibly responsive and accommodating, making sure I was 100% satisfied with the footage and the final result. The editing in particular was outstanding, the reel really makes my son’s skills shine. Jack knew exactly which clips to choose to show off the whole breadth of his game. Great value for the money."</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-avatar" style="background:#34a853;">J</div>
+            <div class="reviewer-info">
+              <p class="reviewer-name">Jason Reilly</p>
+              <div class="google-card-stars">★★★★★</div>
+            </div>
+            <svg class="google-g" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <p class="review-text">"Thank you to Jack and Dylan at PuckPro Media. I came across their information on a social media page and I was able reach out with a very quick response back from PuckPro Media. My son plays for a team in Nashua NH and had a tournament in Marlborough, Massachusetts (45 min. away) and PuckPro, with very short notice, was able to get things organized and make incredible recruiting videos. There was outstanding communication and their fees were very Reasonable. A very special thanks to both Jack and Dylan for a very professional job.
+I know everybody’s life is busy and has a lot going on and I know it was difficult to communicate with me with my hectic schedule so I sincerely appreciate Jack and Dylan’s patients in providing an outstanding product for my family"</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-avatar" style="background:#ea4335;">I</div>
+            <div class="reviewer-info">
+              <p class="reviewer-name">Ingrid Bennett</p>
+              <div class="google-card-stars">★★★★★</div>
+            </div>
+            <svg class="google-g" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <p class="review-text">"Puck Pro Media delivers outstanding work and truly goes above and beyond for their clients. The quality of their content is top-notch—creative, professional, and always tailored to exactly what’s needed. What really sets them apart is their incredible customer service. They are responsive, easy to work with, and genuinely care about making sure everything is perfect. Highly recommend Puck Pro Media to anyone looking for excellent results and a great experience!"</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-avatar" style="background:#1a73e8;">T</div>
+            <div class="reviewer-info">
+              <p class="reviewer-name">thomas colavito</p>
+              <div class="google-card-stars">★★★★★</div>
+            </div>
+            <svg class="google-g" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <p class="review-text">"Puck Pro Media is a must have for any parent to help showcase their son or daughter in game time situations. The value of their service is they genuinely love the game, played the game and know what to look for during the game. Their recent collaboration with an advisory group is testament to their value in helping to promote your player as well as give the family great memories for a lifetime . I can not recommend Puck Pro Media highly enough!!!! I promise you will not be disappointed in their work and professionalism!
+Thomas C."</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-avatar" style="background:#34a853;">C</div>
+            <div class="reviewer-info">
+              <p class="reviewer-name">Christopher O’Brien</p>
+              <div class="google-card-stars">★★★★★</div>
+            </div>
+            <svg class="google-g" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <p class="review-text">"Jack and the team are 5⭐! My son participated in the Mayhem at the Mall tournament and PuckPro went above and beyond to produce clips, social posts, and an amazing game footage. Their work is exceptional and I would highly recommend having them come and work a game or a tournament wherever you are."</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-avatar" style="background:#e8710a;">I</div>
+            <div class="reviewer-info">
+              <p class="reviewer-name">Ian Card</p>
+              <div class="google-card-stars">★★★★★</div>
+            </div>
+            <svg class="google-g" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          </div>
+          <p class="review-text">"Puckpro Media is an excellent photography and videography company. I’ve purchased multiple services in the past and not once was I ever disappointed with the results. They have a growing team that are willing to go above and beyond to satisfy their customers. They use some of the best equipment available to provide the cleanest videos and pictures. The owner of Puckpro Media started his own business locally and as he expanded and advertised on social media he grew a team which got him more and more clients and ultimately more success. I would highly recommend you use Puckpro Media for your Sports highlights and pictures!! BOOK TODAY!!"</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Carousel controls -->
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prevBtn" aria-label="Previous review">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-btn" id="nextBtn" aria-label="Next review">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── 5. CONTACT ───────────────────────────────── -->
+<section class="section-white" id="contact">
+  <div class="container-narrow">
+    <h2 class="display-dark" style="text-align:center;margin-bottom:16px;">CONTACT US</h2>
+    <p class="body-text" style="text-align:center;margin-bottom:52px;">Have a question or want to learn more? Fill out the form and we'll get back to you within 24 hours.</p>
+
+    <form id="contactForm" class="form" name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact" />
+      <div class="form-field">
+        <label for="c-name">Full Name *</label>
+        <input type="text" id="c-name" required />
+      </div>
+      <div class="form-field">
+        <label for="c-email">Email Address *</label>
+        <input type="email" id="c-email" required />
+      </div>
+      <div class="form-field">
+        <label for="c-phone">Phone Number *</label>
+        <input type="tel" id="c-phone" required />
+      </div>
+      <div class="form-field">
+        <label for="c-msg">Message *</label>
+        <textarea id="c-msg" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+    <div id="contactSuccess" class="form-success" style="display:none;">
+      <p class="display-white" style="font-size:32px;">MESSAGE RECEIVED</p>
+      <p>We'll be in touch within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="/logo-white.png" alt="Puck Pro Media" class="footer-logo" />
+        <p class="footer-body">Helping players use video to get recruited &amp; develop their game.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Menu</p>
+        <a href="/" class="footer-link">Home</a>
+        <a href="/#our-work" class="footer-link">Our Work</a>
+        <a href="/book/" class="footer-link">Book Coverage</a>
+        <a href="/join/" class="footer-link">Join Our Team</a>
+        <a href="/#contact" class="footer-link">Contact Us</a>
+      </div>
+      <div>
+        <p class="footer-heading">Contact</p>
+        <a href="tel:8562697579" class="footer-link footer-contact-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (856) 269-7579
+        </a>
+        <a href="mailto:booking@puckpromedia.com" class="footer-link footer-contact-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          booking@puckpromedia.com
+        </a>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/puckpro_media" target="_blank" class="footer-social-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@puckpro_media" target="_blank" class="footer-social-link" aria-label="TikTok">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.78a4.85 4.85 0 01-1.01-.09z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@PuckProMedia" target="_blank" class="footer-social-link" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100089099956779" target="_blank" class="footer-social-link" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/puckpro-media-llc/?viewAsMember=true" target="_blank" class="footer-social-link" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Puck Pro Media LLC. All rights reserved.</p>
+      <a href="/terms/" class="footer-link">Terms of Service</a> <span style="color:#333;margin:0 8px;">·</span> <a href="/privacy/" class="footer-link">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/main.js"></script>
 <script>
+  // Contact form
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('contactSuccess').style.display = 'block';
+  });
+
+  // Review carousel
   (function() {
-    var els = document.querySelectorAll('.hr-reveal');
-    var obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry, i) {
-        if (entry.isIntersecting) {
-          setTimeout(function() {
-            entry.target.classList.add('hr-visible');
-          }, i * 55);
-          obs.unobserve(entry.target);
-        }
+    const carousel = document.getElementById('reviewsCarousel');
+    const cards = carousel.querySelectorAll('.review-card');
+    const dotsContainer = document.getElementById('carouselDots');
+    let current = 0;
+    let autoTimer;
+
+    // Build dots
+    cards.forEach(function(_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Review ' + (i + 1));
+      dot.addEventListener('click', function() { goTo(i); });
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(index) {
+      current = (index + cards.length) % cards.length;
+      var cardW = cards[0].offsetWidth + 24; // card width + gap
+      carousel.scrollTo({ left: current * cardW, behavior: 'smooth' });
+      dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
       });
-    }, { threshold: 0.08 });
-    els.forEach(function(el) { obs.observe(el); });
+      resetAuto();
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', function() { goTo(current - 1); });
+    document.getElementById('nextBtn').addEventListener('click', function() { goTo(current + 1); });
+
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(function() { goTo(current + 1); }, 5000);
+    }
+    resetAuto();
+
+    // Sync dots on manual scroll
+    carousel.addEventListener('scroll', function() {
+      var cardW = cards[0].offsetWidth + 24;
+      var idx = Math.round(carousel.scrollLeft / cardW);
+      if (idx !== current) {
+        current = idx;
+        dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+    });
   })();
 </script>
 </body>
