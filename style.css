@@ -404,6 +404,10 @@ a { text-decoration: none; }
   aspect-ratio: 16/9;
   overflow: hidden;
 }
+.work-media-short {
+  aspect-ratio: 9/16;
+  max-height: 620px;
+}
 .work-media iframe {
   position: absolute;
   top: -1px;
