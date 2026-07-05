@@ -434,8 +434,11 @@ Thomas C."</p>
 <script src="/main.js"></script>
 <script>
   // Contact form
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+    var sent = await window.submitPuckProForm(this, 'contact');
+    if (!sent) return;
+
     this.style.display = 'none';
     document.getElementById('contactSuccess').style.display = 'block';
   });

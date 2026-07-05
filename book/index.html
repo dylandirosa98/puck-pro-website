@@ -347,9 +347,12 @@
     showStep('step-player-form');
   }
 
-  function proceedToCheckout(e) {
+  async function proceedToCheckout(e) {
     e.preventDefault();
-    window.open(selectedStripeUrl, '_blank');
+    var sent = await window.submitPuckProForm(e.currentTarget, 'booking');
+    if (!sent) return;
+
+    window.location.href = selectedStripeUrl;
   }
 
   function goToCall() {

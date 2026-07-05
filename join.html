@@ -269,8 +269,11 @@
     }
   }
 
-  document.getElementById('joinForm').addEventListener('submit', function(e) {
+  document.getElementById('joinForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+    var sent = await window.submitPuckProForm(this, 'careers');
+    if (!sent) return;
+
     this.classList.add('hidden');
     document.getElementById('joinSuccess').classList.remove('hidden');
   });

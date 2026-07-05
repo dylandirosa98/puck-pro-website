@@ -48,3 +48,50 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateScrolledState, { passive: true });
   updateScrolledState();
 });
+
+
+window.submitPuckProForm = async function submitPuckProForm(form, formType) {
+  const submitButton = form.querySelector('[type="submit"]');
+  const originalText = submitButton ? submitButton.textContent : '';
+  const fields = {};
+
+  form.querySelectorAll('input, textarea, select').forEach((field) => {
+    if (!field.id && !field.name) return;
+    if (field.type === 'hidden' || field.disabled) return;
+
+    const key = field.name || field.id.replace(/^[a-z]+-/, '');
+    if (field.type === 'checkbox') {
+      fields[key] = field.checked ? 'Yes' : 'No';
+      return;
+    }
+
+    fields[key] = field.value.trim();
+  });
+
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+  }
+
+  try {
+    const response = await fetch('/api/send-form', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ formType, fields }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Form submission failed');
+    }
+
+    return true;
+  } catch (error) {
+    alert('Something went wrong sending the form. Please email booking@puckpromedia.com directly.');
+    return false;
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
+    }
+  }
+};
