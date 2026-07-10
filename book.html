@@ -91,7 +91,7 @@
     <!-- STEP 2a: Package selection -->
     <div id="step-packages" class="hidden">
       <button class="back-btn" onclick="goBack('who')">← Back</button>
-      <h2 class="display-dark" style="margin-bottom:12px;">CHOOSE YOUR PACKAGE</h2>
+      <h2 class="display-dark" style="margin-bottom:12px;">FULL SERVICE PACKAGES</h2>
 
       <!-- Two phase intro -->
       <div style="margin-bottom:48px;max-width:720px;">
@@ -104,44 +104,106 @@
 
         <div class="pkg-card">
           <p class="pkg-name">PROSPECT PACKAGE</p>
-          <p class="pkg-price">$1,500</p>
+          <p class="pkg-price">$1,875</p>
+          <p class="pkg-payment">Full upfront, 2 payments of $938, or 3 payments of $625.</p>
           <ul class="pkg-features">
-            <li>2 games recorded</li>
-            <li>Hockey Résumé (one-time setup) + Maintenance Plan</li>
-            <li>Recruiting highlight video</li>
-            <li>1 social clip</li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">3 games recorded ($1,200)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">All shifts recorded in 4K quality, focused on your player, from a dedicated videographer and camera angle.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">Hockey Résumé ($300)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">A custom player website that organizes your raw footage, highlight video, academics, statistics, training, progress, and more — built to grow with you over time.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">Recruiting highlight video ($375)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">3-5 minute highlight video with a custom intro (player info, stats, contact), organized by skill categories with slo-mo, clean transitions, and coach-friendly formatting.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">1 social clip<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">10-30s highlight clips showcasing your best plays, optimized for social media, posted and collaborated with @puckpro_media on Instagram.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">Expedited editing turnaround (5-7 days)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">Guaranteed turnaround time so you can stay on track with your recruiting journey.</p>
+            </li>
           </ul>
-          <button class="pkg-btn" onclick="selectPackage('Prospect Package', '$1,500', 'https://buy.stripe.com/4gMaEY1wteu880j21IeUU3K')">Select Prospect</button>
+          <button class="pkg-btn" onclick="selectPackage('Prospect Package', '$1,875', 'https://buy.stripe.com/4gMaEY1wteu880j21IeUU3K')">Select Prospect</button>
         </div>
 
         <div class="pkg-card featured">
           <p class="pkg-badge">Most Popular</p>
           <p class="pkg-name">TOP SHELF PACKAGE</p>
-          <p class="pkg-price">$2,395</p>
+          <p class="pkg-price">$2,900</p>
+          <p class="pkg-payment">Full upfront, 2 payments of $1,450, or 3 payments of $967.</p>
           <ul class="pkg-features">
-            <li>3 games recorded</li>
-            <li>Hockey Résumé (one-time setup) + Next Level Plan</li>
-            <li>Recruiting highlight video</li>
-            <li>2 social clips</li>
-            <li>Hype video</li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">4 games recorded ($1,600)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">All shifts recorded in 4K quality, focused on your player, from a dedicated videographer and camera angle.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">Hockey Résumé ($300)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">A custom player website that organizes your raw footage, highlight video, academics, statistics, training, progress, and more — built to grow with you over time.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">Recruiting highlight video ($500)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">3-5 minute highlight video with a custom intro (player info, stats, contact), organized by skill categories with slo-mo, clean transitions, and coach-friendly formatting.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">2 social clips<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">10-30s highlight clips showcasing your best plays, optimized for social media, posted and collaborated with @puckpro_media on Instagram.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">Hype Video ($500)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">60 second mixtape style videos with best plays from all your games, slow mo, b roll, transitions, and music of your choice.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">Concierge editing turnaround (3-4 days)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">Guaranteed turnaround time so you can stay on track with your recruiting journey.</p>
+            </li>
           </ul>
-          <button class="pkg-btn" onclick="selectPackage('Top Shelf Package', '$2,395', 'https://buy.stripe.com/bJeeVeb7385K80j0XEeUU3L')">Select Top Shelf</button>
+          <button class="pkg-btn" onclick="selectPackage('Top Shelf Package', '$2,900', 'https://buy.stripe.com/bJeeVeb7385K80j0XEeUU3L')">Select Top Shelf</button>
         </div>
 
         <div class="pkg-card">
           <p class="pkg-name">FULL RIDE PACKAGE</p>
-          <p class="pkg-price">$4,500</p>
+          <p class="pkg-price">$5,400</p>
+          <p class="pkg-payment">Full upfront, 2 payments of $2,700, or 3 payments of $1,800.</p>
           <ul class="pkg-features">
-            <li>4 games recorded</li>
-            <li>Hockey Résumé (one-time setup) + Full Stack Plan</li>
-            <li>Recruiting highlight video</li>
-            <li>4 social clips</li>
-            <li>Hype video</li>
-            <li>One training session filmed + edited</li>
-            <li>Custom clip tagging</li>
-            <li>Priority editing turnaround (72h)</li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">5 games recorded ($2,000)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">All shifts recorded in 4K quality, focused on your player, from a dedicated videographer and camera angle.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">Hockey Résumé ($300)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">A custom player website that organizes your raw footage, highlight video, academics, statistics, training, progress, and more — built to grow with you over time.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">Recruiting highlight video ($600)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">3-5 minute highlight video with a custom intro (player info, stats, contact), organized by skill categories with slo-mo, clean transitions, and coach-friendly formatting.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">5 social clips ($300)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">10-30s highlight clips showcasing your best plays, optimized for social media, posted and collaborated with @puckpro_media on Instagram.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">2 Hype Videos ($850)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">60 second mixtape style videos with best plays from all your games, slow mo, b roll, transitions, and music of your choice.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">One training session filmed + edited ($600)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">Behind the scenes action of your player at practice, privates, or off ice, sessions up to 2h long. 1-2 minute highlight video to add to your resume.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">Custom clip tagging ($750)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">We will watch every second of your footage and tag your best moments. Each file will be renamed based on what occurred in the clip, so you can easily find what you are looking for when searching your player folder.</p>
+            </li>
+            <li class="pkg-feature">
+              <button type="button" class="pkg-feature-toggle" aria-expanded="false">Priority editing turnaround (24-48h)<span class="pkg-info-icon" aria-hidden="true">i</span></button>
+              <p class="pkg-feature-desc">Guaranteed turnaround time so you can stay on track with your recruiting journey.</p>
+            </li>
           </ul>
-          <button class="pkg-btn" onclick="selectPackage('Full Ride Package', '$4,500', 'https://buy.stripe.com/6oU6oIfnj0DigwPgWCeUU3M')">Select Full Ride</button>
+          <button class="pkg-btn" onclick="selectPackage('Full Ride Package', '$5,400', 'https://buy.stripe.com/6oU6oIfnj0DigwPgWCeUU3M')">Select Full Ride</button>
         </div>
 
       </div>

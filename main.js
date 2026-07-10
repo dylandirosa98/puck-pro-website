@@ -95,3 +95,13 @@ window.submitPuckProForm = async function submitPuckProForm(form, formType) {
     }
   }
 };
+
+
+document.addEventListener('click', (event) => {
+  const toggle = event.target.closest('.pkg-feature-toggle');
+  if (!toggle) return;
+
+  const feature = toggle.closest('.pkg-feature');
+  const isOpen = feature.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(isOpen));
+});
