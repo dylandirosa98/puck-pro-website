@@ -778,15 +778,6 @@ a { text-decoration: none; }
   margin-bottom: 12px;
 }
 
-.pkg-payment {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.55;
-  margin: -4px 0 20px;
-}
-.pkg-card:not(.featured) .pkg-payment { color: #666; }
-.pkg-card.featured .pkg-payment { color: #aaa; }
 .pkg-feature { position: relative; }
 .pkg-feature-toggle {
   appearance: none;
