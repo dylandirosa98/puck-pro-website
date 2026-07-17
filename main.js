@@ -107,14 +107,9 @@ document.addEventListener('click', (event) => {
 });
 
 
-document.addEventListener('click', (event) => {
-  const trigger = event.target.closest('[data-process-video]');
-  if (!trigger) return;
-
+const openProcessVideo = () => {
   const modal = document.getElementById('processVideoModal');
   if (!modal) return;
-
-  event.preventDefault();
 
   const iframe = modal.querySelector('iframe');
   if (iframe && !iframe.src) {
@@ -123,11 +118,9 @@ document.addEventListener('click', (event) => {
 
   modal.hidden = false;
   document.body.classList.add('video-modal-open');
-});
+};
 
-document.addEventListener('click', (event) => {
-  if (!event.target.closest('[data-process-video-close]')) return;
-
+const closeProcessVideo = () => {
   const modal = document.getElementById('processVideoModal');
   if (!modal) return;
 
@@ -138,19 +131,43 @@ document.addEventListener('click', (event) => {
 
   modal.hidden = true;
   document.body.classList.remove('video-modal-open');
+};
+
+document.addEventListener('click', (event) => {
+  const trigger = event.target.closest('[data-process-video]');
+  if (!trigger) return;
+
+  event.preventDefault();
+  if (window.location.hash !== '#process-video') {
+    history.pushState(null, '', '#process-video');
+  }
+  openProcessVideo();
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('[data-process-video-close]')) return;
+
+  closeProcessVideo();
 });
 
 document.addEventListener('keydown', (event) => {
   if (event.key !== 'Escape') return;
 
-  const modal = document.getElementById('processVideoModal');
-  if (!modal || modal.hidden) return;
+  closeProcessVideo();
+});
 
-  const iframe = modal.querySelector('iframe');
-  if (iframe) {
-    iframe.src = '';
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.location.hash !== '#process-video') return;
+
+  const trigger = document.getElementById('process-video');
+  if (trigger) {
+    trigger.scrollIntoView({ block: 'center' });
   }
+  openProcessVideo();
+});
 
-  modal.hidden = true;
-  document.body.classList.remove('video-modal-open');
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#process-video') {
+    openProcessVideo();
+  }
 });
