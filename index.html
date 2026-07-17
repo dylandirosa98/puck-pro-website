@@ -94,7 +94,7 @@
           </div>
         </div>
 
-        <a href="#vsl" class="btn-dark" style="display:inline-block;margin-top:36px;">Watch This Video to Learn Our Whole Process</a>
+        <a href="#process-video" class="btn-dark" data-process-video style="display:inline-block;margin-top:36px;">Watch This Video to Learn Our Whole Process</a>
       </div>
     </div>
 
@@ -430,6 +430,20 @@ Thomas C."</p>
     </div>
   </div>
 </footer>
+
+<div class="process-video-modal" id="processVideoModal" hidden>
+  <button class="process-video-backdrop" type="button" data-process-video-close aria-label="Close video"></button>
+  <div class="process-video-dialog" role="dialog" aria-modal="true" aria-label="Puck Pro process video">
+    <button class="process-video-close" type="button" data-process-video-close aria-label="Close video">×</button>
+    <iframe
+      data-src="https://player.mux.com/3vN3MKy92KiS4eMHjn5edUueYjG4jplyOe2QLbQnYUo"
+      style="width: 100%; border: none; aspect-ratio: 16/9;"
+      allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+      allowfullscreen
+      title="Puck Pro service process video"
+    ></iframe>
+  </div>
+</div>
 
 <script src="/main.js"></script>
 <script>

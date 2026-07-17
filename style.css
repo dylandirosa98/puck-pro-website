@@ -717,6 +717,66 @@ a { text-decoration: none; }
 }
 .form-check a { color: #0A0A0A; font-weight: 600; }
 
+
+/* ── PROCESS VIDEO ────────────────────────────── */
+.process-video-panel {
+  width: 100%;
+  margin: 0 0 40px;
+  background: #0A0A0A;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+.process-video-panel iframe {
+  display: block;
+}
+.process-video-modal[hidden] {
+  display: none;
+}
+.process-video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.process-video-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(0,0,0,0.78);
+  cursor: pointer;
+}
+.process-video-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(1040px, 100%);
+  background: #0A0A0A;
+  box-shadow: 0 28px 90px rgba(0,0,0,0.45);
+}
+.process-video-dialog iframe {
+  display: block;
+}
+.process-video-close {
+  position: absolute;
+  top: -42px;
+  right: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+body.video-modal-open {
+  overflow: hidden;
+}
+
 /* ── PAGE HEADER ──────────────────────────────── */
 .page-header {
   background: #0A0A0A;

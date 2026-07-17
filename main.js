@@ -105,3 +105,52 @@ document.addEventListener('click', (event) => {
   const isOpen = feature.classList.toggle('open');
   toggle.setAttribute('aria-expanded', String(isOpen));
 });
+
+
+document.addEventListener('click', (event) => {
+  const trigger = event.target.closest('[data-process-video]');
+  if (!trigger) return;
+
+  const modal = document.getElementById('processVideoModal');
+  if (!modal) return;
+
+  event.preventDefault();
+
+  const iframe = modal.querySelector('iframe');
+  if (iframe && !iframe.src) {
+    iframe.src = iframe.dataset.src;
+  }
+
+  modal.hidden = false;
+  document.body.classList.add('video-modal-open');
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('[data-process-video-close]')) return;
+
+  const modal = document.getElementById('processVideoModal');
+  if (!modal) return;
+
+  const iframe = modal.querySelector('iframe');
+  if (iframe) {
+    iframe.src = '';
+  }
+
+  modal.hidden = true;
+  document.body.classList.remove('video-modal-open');
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+
+  const modal = document.getElementById('processVideoModal');
+  if (!modal || modal.hidden) return;
+
+  const iframe = modal.querySelector('iframe');
+  if (iframe) {
+    iframe.src = '';
+  }
+
+  modal.hidden = true;
+  document.body.classList.remove('video-modal-open');
+});
