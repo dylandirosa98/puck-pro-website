@@ -55,7 +55,7 @@ module.exports = async function handler(req, res) {
     `)
     .join('');
 
-  const subject = `Puck Pro Media ${formatLabel(formType)} Submission`;
+  const subject = `PuckPro Media ${formatLabel(formType)} Submission`;
   const replyTo = fields.email || fields['email-address'] || fields['your-email'] || undefined;
 
   const payload = {
