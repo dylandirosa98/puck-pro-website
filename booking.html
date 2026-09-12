@@ -217,6 +217,12 @@ h3{
   padding:1px 2px;box-decoration-break:clone;
   -webkit-box-decoration-break:clone;
 }
+.review-more{
+  display:none;color:#fff;margin-top:16px;
+  font-size:.82rem;font-weight:700;letter-spacing:.04em;
+  text-decoration:underline;text-underline-offset:4px;
+  align-self:flex-start;
+}
 
 .rev-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:30px}
 .rev-btn{
@@ -272,7 +278,12 @@ h3{
 @media (max-width:600px){
   body{font-size:16px}
   .btn-primary{width:100%;text-align:center;padding:20px 20px;font-size:.8rem;letter-spacing:.05em}
-  .reviews-scroller{grid-auto-columns:minmax(268px,84vw)}
+  .reviews-scroller{grid-auto-columns:minmax(268px,84vw);align-items:start}
+  .review-text:not(.expanded){
+    display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;
+    overflow:hidden;
+  }
+  .review-more{display:block}
 }
 </style>
 </head>
@@ -681,6 +692,23 @@ h3{
   }
   document.getElementById('revPrev').addEventListener('click', function(){ nudge(-1); });
   document.getElementById('revNext').addEventListener('click', function(){ nudge(1); });
+
+  [].forEach.call(scroller.querySelectorAll('.review-text'), function(review, index){
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'review-more';
+    button.textContent = 'Read more';
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-controls', 'review-' + index);
+    review.id = 'review-' + index;
+    review.parentNode.appendChild(button);
+
+    button.addEventListener('click', function(){
+      var expanded = review.classList.toggle('expanded');
+      button.textContent = expanded ? 'Read less' : 'Read more';
+      button.setAttribute('aria-expanded', String(expanded));
+    });
+  });
 
   /* ---------------------------------------------------------
      4. VSL 50% WATCH -> ViewContent
