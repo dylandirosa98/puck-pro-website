@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Call | Puck Pro Media</title>
+  <meta name="description" content="Talk through your video needs and decide if PuckPro is the right fit for your player." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ============================================================
+       META PIXEL  —  REPLACE 000000000000000 WITH YOUR PIXEL ID
+       ============================================================ -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '000000000000000');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=000000000000000&ev=PageView&noscript=1"/></noscript>
+
+<style>
+/* ==============================================================
+   SELF-CONTAINED. No external stylesheet, no relative paths.
+   Black and white only. Poppins display / Montserrat body.
+   ============================================================== */
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  font-family:'Montserrat',system-ui,-apple-system,sans-serif;
+  background:#fff;color:#111;
+  font-size:17px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img,video,iframe{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+
+.container{max-width:1160px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.narrow{max-width:880px;margin:0 auto}
+.center{text-align:center}
+
+.section-black{background:#000;color:#fff;padding:clamp(60px,8vw,104px) 0}
+.section-white{background:#fff;color:#111;padding:clamp(60px,8vw,104px) 0}
+
+/* ---------- type ---------- */
+h1{
+  font-family:'Poppins',sans-serif;font-weight:900;
+  font-size:clamp(1.95rem,4.3vw,3.2rem);
+  line-height:1.07;letter-spacing:-.022em;
+}
+h2{
+  font-family:'Poppins',sans-serif;font-weight:900;
+  font-size:clamp(1.6rem,3.4vw,2.5rem);
+  line-height:1.08;letter-spacing:-.018em;
+}
+h3{
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:.93rem;text-transform:uppercase;letter-spacing:.045em;
+  line-height:1.35;
+}
+.body-text{font-size:1.03rem;line-height:1.75}
+.section-black .body-text{color:rgba(255,255,255,.68)}
+.section-white .body-text{color:#4A4A4A}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(48px,7vw,84px) 0 clamp(56px,8vw,96px)}
+.hero-logo{display:inline-block;margin-bottom:38px}
+.hero-logo img{height:clamp(52px,7vw,76px);width:auto}
+.hero h1{max-width:21ch;margin:0 auto}
+.hero-sub{
+  font-size:1.08rem;line-height:1.72;
+  color:rgba(255,255,255,.7);
+  max-width:64ch;margin:26px auto 0;
+}
+
+/* ---------- CTA ---------- */
+.btn-primary{
+  display:inline-block;
+  background:#fff;color:#000;
+  font-family:'Montserrat',sans-serif;
+  font-size:.87rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;
+  padding:21px 42px;text-decoration:none;border:1px solid #fff;
+  max-width:100%;line-height:1.4;
+  transition:background .16s ease,color .16s ease;
+}
+.btn-primary:hover{background:transparent;color:#fff}
+.section-white .btn-primary{background:#000;color:#fff;border-color:#000}
+.section-white .btn-primary:hover{background:transparent;color:#000}
+
+.cta-block{margin-top:38px}
+.cta-repeat{margin-top:48px;text-align:center}
+.cta-note{
+  font-size:.85rem;line-height:1.6;
+  color:rgba(255,255,255,.5);
+  max-width:54ch;margin:16px auto 0;
+}
+.section-white .cta-note{color:#6B6B6B}
+
+/* ---------- guarantee (hero, compact) ---------- */
+.guarantee-mini{
+  border:1px solid rgba(255,255,255,.24);
+  padding:20px 26px;margin:30px auto 0;
+  max-width:520px;
+}
+.guarantee-eyebrow{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-size:.7rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.17em;
+  color:rgba(255,255,255,.5);margin-bottom:10px;
+}
+.guarantee-eyebrow svg{width:13px;height:13px;fill:rgba(255,255,255,.5);flex:0 0 auto}
+.guarantee-line{
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:1rem;line-height:1.35;color:#fff;margin-bottom:8px;
+}
+.guarantee-body{
+  font-size:.83rem;line-height:1.6;color:rgba(255,255,255,.55);
+  max-width:46ch;margin:0 auto;
+}
+
+/* ---------- video frame ---------- */
+.frame{
+  position:relative;background:#0A0A0A;
+  border:1px solid rgba(255,255,255,.16);
+  overflow:hidden;aspect-ratio:16/9;
+}
+.section-white .frame{border-color:rgba(0,0,0,.14)}
+.frame video,.frame iframe{width:100%;height:100%;border:0;display:block}
+.hero-video{margin-top:44px}
+
+/* ---------- deliverables ---------- */
+.deliverables{
+  list-style:none;max-width:680px;
+  margin:40px auto;text-align:left;
+  border-top:1px solid rgba(0,0,0,.13);
+}
+.deliverables li{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:22px 0;
+  border-bottom:1px solid rgba(0,0,0,.13);
+}
+.d-name{
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:1rem;line-height:1.35;color:#000;
+}
+.d-link{
+  font-size:.85rem;font-weight:600;color:#000;
+  text-decoration:none;white-space:nowrap;
+  border-bottom:1px solid rgba(0,0,0,.3);padding-bottom:3px;
+  transition:opacity .16s ease,border-color .16s ease;
+}
+.d-link span{font-size:.9em;margin-left:2px}
+.d-link:hover{opacity:.6;border-color:#000}
+
+/* ---------- who it's for ---------- */
+.who-intro{max-width:60ch;margin:20px auto 56px}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;text-align:left}
+.who-item{padding:0 34px}
+.who-item:first-child{padding-left:0}
+.who-item:last-child{padding-right:0}
+.who-item + .who-item{border-left:1px solid rgba(255,255,255,.16)}
+.who-num{
+  font-family:'Poppins',sans-serif;font-weight:900;
+  font-size:2.4rem;line-height:1;color:#fff;
+  margin-bottom:16px;display:block;
+}
+.who-item h3{font-size:1.02rem;text-transform:none;letter-spacing:-.005em;color:#fff;margin-bottom:12px}
+.who-item p{font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.66)}
+
+/* ---------- reviews ---------- */
+.google-summary{display:flex;align-items:center;justify-content:center;gap:16px;margin:24px 0 40px}
+.google-logo{width:34px;height:34px;flex:0 0 auto}
+.google-rating-info{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.google-score{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.9rem;line-height:1;color:#fff}
+.google-stars-row{color:#fff;letter-spacing:.1em;font-size:.92rem}
+.google-count{font-size:.84rem;color:rgba(255,255,255,.55)}
+
+.reviews-scroller{
+  display:grid;grid-auto-flow:column;
+  grid-auto-columns:minmax(320px,360px);
+  gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:8px;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.reviews-scroller::-webkit-scrollbar{display:none}
+.review-card{
+  scroll-snap-align:start;
+  border:1px solid rgba(255,255,255,.16);
+  padding:28px 26px;display:flex;flex-direction:column;
+}
+.review-card-top{display:flex;align-items:center;gap:13px;margin-bottom:20px}
+.reviewer-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:#fff;color:#000;
+  display:grid;place-items:center;flex:0 0 auto;
+  font-family:'Poppins',sans-serif;font-weight:800;font-size:.95rem;
+}
+.reviewer-info{min-width:0}
+.reviewer-name{font-weight:600;font-size:.92rem;line-height:1.3;color:#fff}
+.google-card-stars{color:#fff;font-size:.78rem;letter-spacing:.1em;margin-top:3px}
+.review-text{font-size:.95rem;line-height:1.72;color:rgba(255,255,255,.62)}
+.review-text mark{
+  background:rgba(255,255,255,.16);
+  color:#fff;font-weight:600;
+  padding:1px 2px;box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+}
+
+.rev-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:30px}
+.rev-btn{
+  width:44px;height:44px;border:1px solid rgba(255,255,255,.28);
+  display:grid;place-items:center;color:#fff;
+  transition:background .16s ease,border-color .16s ease,color .16s ease;
+}
+.rev-btn:hover{background:#fff;border-color:#fff;color:#000}
+.rev-btn svg{width:15px;height:15px;fill:currentColor}
+.rev-link{
+  font-size:.85rem;font-weight:600;color:#fff;text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:4px;
+}
+.rev-link:hover{opacity:.7}
+
+/* ---------- faq ---------- */
+.faq{border-top:1px solid rgba(0,0,0,.13);max-width:80ch;margin:40px auto 0;text-align:left}
+.qa{border-bottom:1px solid rgba(0,0,0,.13)}
+.qa summary{
+  cursor:pointer;list-style:none;position:relative;
+  padding:24px 46px 24px 0;
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:.95rem;text-transform:uppercase;letter-spacing:.035em;
+  line-height:1.4;color:#000;
+}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{
+  content:'+';position:absolute;right:4px;top:50%;transform:translateY(-50%);
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:1.5rem;line-height:1;
+}
+.qa[open] summary::after{content:'\2013'}
+.qa .a{padding:0 46px 28px 0}
+.qa .a a{font-weight:600;color:#000;border-bottom:1px solid rgba(0,0,0,.35);text-decoration:none}
+.qa .a a:hover{opacity:.6}
+
+/* ---------- booking ---------- */
+.cal-wrap{background:#fff;min-height:720px;overflow:hidden}
+
+/* ---------- footer ---------- */
+.footer{background:#000;color:rgba(255,255,255,.5);padding:50px 0 56px;border-top:1px solid rgba(255,255,255,.12)}
+.footer-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.footer-logo{height:28px;width:auto;margin-bottom:15px}
+.footer-body{font-size:.86rem;line-height:1.65}
+.footer-contact-link{color:#fff;font-weight:600;text-decoration:none;font-size:.89rem;line-height:1.9}
+.footer-contact-link:hover{opacity:.7}
+
+@media (max-width:980px){
+  .who-grid{grid-template-columns:1fr;gap:0}
+  .who-item{padding:30px 0}
+  .who-item:first-child{padding-top:0}
+  .who-item + .who-item{border-left:0;border-top:1px solid rgba(255,255,255,.16)}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .btn-primary{width:100%;text-align:center;padding:20px 20px;font-size:.8rem;letter-spacing:.05em}
+  .reviews-scroller{grid-auto-columns:minmax(268px,84vw)}
+}
+</style>
+</head>
+<body>
+
+<!-- ── HERO ─────────────────────────────────────── -->
+<section class="section-black hero">
+  <div class="container center">
+    <a class="hero-logo" href="https://www.puckpromedia.com/" target="_blank" rel="noopener">
+      <img src="https://www.puckpromedia.com/logo-white.png" alt="Puck Pro Media" />
+    </a>
+
+    <h1 id="hl">Don't Wait Until an Opportunity Comes Up to Get Your Player on Video.</h1>
+
+    <p class="hero-sub" id="sub">The right footage can support recruiting, prep school applications, team opportunities, player development, and memories of the season. Book a call below to talk through your video needs and decide if it's the right fit.</p>
+
+    <div class="narrow hero-video">
+      <div class="frame" id="vslFrame">
+        <!-- Self-hosted. Upload vsl-web.mp4 and vsl-poster.jpg alongside this file.
+             Moving to Mux later: load the Mux player script and replace the
+             video element below with a mux-player element, keeping id="vsl".
+             The 50% tracking works with either, so no JS changes are needed. -->
+        <video id="vsl" controls playsinline preload="metadata" poster="/booking/vsl-poster.jpg">
+          <source src="/booking/vsl-web.mp4" type="video/mp4" />
+          Your browser can't play this video. <a href="/booking/vsl-web.mp4">Download it instead.</a>
+        </video>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <a href="#book" class="btn-primary">Book a Call to Get the Right Plan for Your Player</a>
+      <p class="cta-note">Get your questions answered, understand your options, and leave with a clear next step. No pressure.</p>
+      <div class="guarantee-mini">
+        <p class="guarantee-eyebrow">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1.2 15.4L6.6 12.2l1.4-1.4 2.8 2.8 5.6-5.6 1.4 1.4-7 7z"/></svg>
+          Quality Footage Guarantee
+        </p>
+        <p class="guarantee-line">If the first game doesn't deliver, you don't pay</p>
+        <p class="guarantee-body">If after the first game we fail to deliver usable footage and you're not satisfied, we'll refund in full and cancel your remaining package.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REVIEWS ──────────────────────────────────── -->
+<section class="section-black" id="reviews">
+  <div class="container">
+    <div class="center">
+      <h2>What Our Clients Say</h2>
+      <div class="google-summary">
+        <svg class="google-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          <path fill="none" d="M0 0h48v48H0z"/>
+        </svg>
+        <div class="google-rating-info">
+          <span class="google-score">5.0</span>
+          <div class="google-stars-row">★★★★★</div>
+          <span class="google-count">58 Google Reviews</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-scroller" id="revScroller">
+      <article class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar">M</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">Melissa Lore</p>
+            <div class="google-card-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">Jack and his team of videographers did a great job on my son’s recruiting reel. Jack was incredibly responsive and accommodating, making sure I was 100% satisfied with the footage and the final result. <mark>The editing in particular was outstanding, the reel really makes my son’s skills shine. Jack knew exactly which clips to choose to show off the whole breadth of his game.</mark> Great value for the money.</p>
+      </article>
+      <article class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar">H</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">Halpin Family</p>
+            <div class="google-card-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">PuckPro Media goes above and beyond to produce a product that you are happy with. I had a couple of annoying changes I requested and Jack handled them professionally and without hesitation. <mark>In a world where customer service is declining , Jack and PuckPro Media go the extra mile to ensure you are happy with their finished product.</mark> I highly recommend Jack and his team. You will not be disappointed with their service!</p>
+      </article>
+      <article class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar">A</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">Andrew C</p>
+            <div class="google-card-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">Hey hockey lovers. I am on now year 14 of hockey with my son. Once in a while you find something really good in the hockey world. Well, PuckPro is that something. I met with Jack. Great guy, does really good work, is super-flexible a great communicator and gave me some great footage. To save a little you may use LiveBarn or FloTV or BlackBear TV. Those are more for watching a game when you can’t be there live. <mark>The professional footage from PuckPro not only is better for a portfolio to send to coaches, recuriters, colleges, etc.. It also will help your play because you see nuances in his/her game, like on-ice scanning, edge-work, and other skills in high def/up close. Worth the investment! Highest of recommendations.</mark></p>
+      </article>
+      <article class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar">T</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">thomas colavito</p>
+            <div class="google-card-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text"><mark>Puck Pro Media is a must have for any parent to help showcase their son or daughter in game time situations.</mark> The value of their service is they genuinely love the game, played the game and know what to look for during the game. Their recent collaboration with an advisory group is testament to their value in helping to promote your player as well as give the family great memories for a lifetime . I can not recommend Puck Pro Media highly enough!!!! I promise you will not be disappointed in their work and professionalism!</p>
+      </article>
+      <article class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar">L</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">Luke Crooker</p>
+            <div class="google-card-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">I had a great experience working with PuckPro. From the start, they were professional, organized, and the quality of the game footage was excellent. <mark>The angles were perfect, and I could clearly see every play, which really helped me break down my performance and grow as a player.</mark> After the first game, I knew I wanted to keep using their services—not only for my own development, but also to build a strong highlight reel. I’d definitely recommend them to any athlete looking to get serious about their game.</p>
+      </article>
+      <article class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar">I</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">Ingrid Bennett</p>
+            <div class="google-card-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">Puck Pro Media delivers outstanding work and truly goes above and beyond for their clients. The quality of their content is top-notch—creative, professional, and always tailored to exactly what’s needed. <mark>What really sets them apart is their incredible customer service. They are responsive, easy to work with, and genuinely care about making sure everything is perfect.</mark> Highly recommend Puck Pro Media to anyone looking for excellent results and a great experience!</p>
+      </article>
+      <article class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar">A</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">Anthony Flynn</p>
+            <div class="google-card-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">Our friends at PuckPro Media have been amazing partners. <mark>Their work is always top notch and turned around in remarkable time. Can not recommend them enough.</mark> Many of our other partners have used them and we know they have had similar positive experiences.</p>
+      </article>
+      <article class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar">C</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">Christopher O’Brien</p>
+            <div class="google-card-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">Jack and the team are 5⭐! My son participated in the Mayhem at the Mall tournament and PuckPro went above and beyond to produce clips, social posts, and an amazing game footage. <mark>Their work is exceptional and I would highly recommend having them come and work a game or a tournament wherever you are.</mark></p>
+      </article>
+      <article class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar">M</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">Michaela McCormick</p>
+            <div class="google-card-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">PuckPro has made edits and videos for my son for three years now. <mark>They are ultra communicative, professional and juts really great at their job. We needed videos for my son to apply to boarding school and they helped him get accepted!</mark></p>
+      </article>
+      <article class="review-card">
+        <div class="review-card-top">
+          <div class="reviewer-avatar">L</div>
+          <div class="reviewer-info">
+            <p class="reviewer-name">Lee Verde</p>
+            <div class="google-card-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">We met Jack at a roller hockey tournament when he was just getting started and right away I was impressed with his passion, professionalism and the quality of his work! His business took off real quick due to his dedication and drive and he has grown rapidly. <mark>If you’re looking for professional video of your hockey game, look no further! Videos are high quality and well edited in a very timely manner.</mark> I 100% recommend whether it’s for roller hockey or ice hockey, you will not be disappointed! We just hired him to shoot a game for us near Philly. He did an amazing job capturing each kid in the team. Highly recommend!</p>
+      </article>
+    </div>
+
+    <div class="rev-controls">
+      <button class="rev-btn" id="revPrev" aria-label="Previous reviews">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.4 3.6 13.3 1.5 2.8 12l10.5 10.5 2.1-2.1L7 12z"/></svg>
+      </button>
+      <a href="https://share.google/9bX8CBJOKBlsXlqQY" target="_blank" rel="noopener" class="rev-link">Read All Reviews on Google</a>
+      <button class="rev-btn" id="revNext" aria-label="More reviews">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.6 3.6 10.7 1.5 21.2 12 10.7 22.5l-2.1-2.1L17 12z"/></svg>
+      </button>
+    </div>
+
+    <div class="cta-repeat">
+      <a href="#book" class="btn-primary">Book a Call to Get the Right Plan for Your Player</a>
+      <p class="cta-note">Get your questions answered, understand your options, and leave with a clear next step. No pressure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── DELIVERABLES ──────────────────── -->
+<section class="section-white" id="deliverables">
+  <div class="container center">
+    <h2>See What We Actually Build</h2>
+    <p class="body-text" style="max-width:60ch;margin:20px auto 0;">Depending on your athlete's goals, we can help create the following deliverables:</p>
+
+    <ul class="deliverables">
+      <li>
+        <span class="d-name">Recruiting highlight video</span>
+        <a class="d-link" href="https://youtu.be/7xW36pFzN4k" target="_blank" rel="noopener" data-example="recruiting_reel">See Example <span aria-hidden="true">↗</span></a>
+      </li>
+      <li>
+        <span class="d-name">Hype video / montage</span>
+        <a class="d-link" href="https://www.instagram.com/reels/DUy5niFDhA8/" target="_blank" rel="noopener" data-example="hype_video">See Example <span aria-hidden="true">↗</span></a>
+      </li>
+      <li>
+        <span class="d-name">Hockey Résumé site</span>
+        <a class="d-link" href="https://www.gianlucasantinotrazzera.com/" target="_blank" rel="noopener" data-example="hockey_resume">See Example <span aria-hidden="true">↗</span></a>
+      </li>
+      <li>
+        <span class="d-name">Social media short content</span>
+        <a class="d-link" href="https://www.instagram.com/p/DVELFVRDtR0/?img_index=1" target="_blank" rel="noopener" data-example="social_short">See Example <span aria-hidden="true">↗</span></a>
+      </li>
+    </ul>
+
+    <p class="body-text" style="max-width:62ch;margin:0 auto;">Every athlete and family has a different objective. We'll help you determine the right format, filming plan, and package on the call.</p>
+  </div>
+</section>
+
+<!-- ── WHO IT'S FOR ─────────────────────────────── -->
+<section class="section-black" id="who">
+  <div class="container">
+    <div class="center">
+      <h2>Who Is PuckPro For?</h2>
+      <p class="body-text who-intro">Most of the players we work with are between the ages of 12 and 18, and they use our services for more than one reason.</p>
+    </div>
+
+    <div class="who-grid">
+      <div class="who-item">
+        <span class="who-num">01</span>
+        <h3>Recruiting</h3>
+        <p>Whether you're applying to prep schools, trying out for club teams, or looking to get on a junior coach's radar, we create a crystal clear picture of the role your player fills and why they belong on the roster.</p>
+      </div>
+      <div class="who-item">
+        <span class="who-num">02</span>
+        <h3>Development</h3>
+        <p>Our clients review their raw footage with film coaches to clearly identify what they're doing right and what they need to work on, in detail.</p>
+      </div>
+      <div class="who-item">
+        <span class="who-num">03</span>
+        <h3>Memories</h3>
+        <p>Hockey doesn't last forever, and our clients know that. These moments are invaluable, and they want to be able to look back on their best games years down the line.</p>
+      </div>
+    </div>
+
+    <div class="cta-repeat">
+      <a href="#book" class="btn-primary">Book a Call to Get the Right Plan for Your Player</a>
+      <p class="cta-note">Get your questions answered, understand your options, and leave with a clear next step. No pressure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ──────────────────────────────────────── -->
+<section class="section-white">
+  <div class="container center">
+    <h2>Before You Decide</h2>
+
+    <div class="faq">
+      <details class="qa">
+        <summary>What does it cost?</summary>
+        <div class="a"><p class="body-text">Our standard packages are on our main site &mdash; go to <a href="https://www.puckpromedia.com/" target="_blank" rel="noopener" data-example="pricing_link_faq">puckpromedia.com</a>, select Book Coverage, then Parent/Player. If none of those make sense for your needs and budget, we can customize.</p></div>
+      </details>
+
+      <details class="qa">
+        <summary>Can we customize a package?</summary>
+        <div class="a"><p class="body-text">Yes — this is one of the things we can do in real time on the call. We can mix and match services to create a custom package that aligns most with your needs.</p></div>
+      </details>
+
+      <details class="qa">
+        <summary>How do we pick which games you come to?</summary>
+        <div class="a"><p class="body-text">Come prepared with your full schedule, or two to three times the number of games you plan on booking. We'll run through your preferences, our availability, and nail down a plan from there.</p></div>
+      </details>
+
+      <details class="qa">
+        <summary>What if we already have footage and just need editing?</summary>
+        <div class="a"><p class="body-text">We offer editing services even if you don't need us to film. These jobs are handled on a case by case basis, depending on the amount of footage you have and what we're sorting through.</p></div>
+      </details>
+
+      <details class="qa">
+        <summary>Do you offer payment plans?</summary>
+        <div class="a"><p class="body-text">We can break payments up into two to four installments depending on the package. When you receive your invoice, you'll also have the option to finance through Affirm for small monthly payments.</p></div>
+      </details>
+
+      <details class="qa">
+        <summary>Can we do this with our team or multiple players?</summary>
+        <div class="a"><p class="body-text">Yes — we create custom packages for team and multi-player scenarios.</p></div>
+      </details>
+
+      <details class="qa">
+        <summary>What's your turnaround time?</summary>
+        <div class="a"><p class="body-text">Raw footage is uploaded within 72 hours of game completion, and edited videos are delivered within a week.</p></div>
+      </details>
+
+      <details class="qa">
+        <summary>What if our player isn't looking to get recruited?</summary>
+        <div class="a"><p class="body-text">Totally fine — there's more than one use case for video. Whether the player is younger and you just want to document the early days, or you're looking for something fun from each season, we'll create a custom package that makes sense for you.</p></div>
+      </details>
+
+      <details class="qa">
+        <summary>When should we start?</summary>
+        <div class="a"><p class="body-text">There's no right or wrong answer. If coaches are already asking for footage, you have plans of applying to schools, or you're making an intentional recruiting push within the next one to two years, those are some signs it's the right time. If you're before that stage, there's still benefit to starting early for tracking progress, reviewing film, and memories' sake.</p></div>
+      </details>
+
+      <details class="qa">
+        <summary>Where are you located?</summary>
+        <div class="a"><p class="body-text">Our team currently covers New Jersey, Philadelphia and surrounding areas, Boston and surrounding areas, and parts of Connecticut and New York. We frequently travel outside of these regions for game requests — a travel fee may apply.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOK ─────────────────────────────────────── -->
+<section class="section-black" id="book">
+  <div class="container center">
+
+    <h2>Book a Call to Get the Right Plan for Your Player</h2>
+    <p class="body-text" style="max-width:58ch;margin:20px auto 38px;">Get your questions answered, understand your options, and leave with a clear next step. No pressure.</p>
+
+    <div class="cal-wrap">
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/puckpromedia-info/talktopuckpro?hide_gdpr_banner=1"
+           style="min-width:320px;height:720px;"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="https://www.puckpromedia.com/logo-white.png" alt="Puck Pro Media" class="footer-logo" />
+        <p class="footer-body">Helping players use video to get recruited &amp; develop their game.</p>
+      </div>
+      <div>
+        <a href="tel:8562697579" class="footer-contact-link">(856) 269-7579</a><br />
+        <a href="mailto:booking@puckpromedia.com" class="footer-contact-link">booking@puckpromedia.com</a>
+        <p class="footer-body" style="margin-top:14px;">© 2026 Puck Pro Media LLC</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+(function(){
+  'use strict';
+
+  /* =========================================================
+     CONFIG
+     Set to true ONLY if you turn on Calendly's
+     "redirect to a custom page" and point it at call-booked.html.
+     Leave false and the Schedule event fires right here in the
+     embed — no redirect needed. Never have both, or bookings
+     get counted twice.
+     ========================================================= */
+  var USE_REDIRECT_PAGE = false;
+
+  /* ---------------------------------------------------------
+     1. HEADLINE SWAP — match the page to whichever ad was clicked.
+        Append ?a=games / ?a=price / ?a=story / ?a=proof to the ad URL.
+        Leave the param off and the default headline shows.
+     --------------------------------------------------------- */
+  var VARIANTS = {
+    games: {
+      h: "Still Trying to Pick the Right Games? That Part Is Our Job.",
+      s: "Bring your schedule and we'll handle the rest. Book a call below to talk through your video needs and decide if it's the right fit."
+    },
+    price: {
+      h: "Wondering If Hockey Video Is Worth It for Your Player?",
+      s: "The right footage can support recruiting, prep school applications, team opportunities, player development, and memories of the season. Book a call below to talk through the options, including payment plans."
+    },
+    story: {
+      h: "Most Families Wait One Season Longer Than They Meant To.",
+      s: "Not because they decided against it — because there was never an obvious week to start. Book a call below to talk through your video needs and decide if it's the right fit."
+    },
+    proof: {
+      h: "See What a Role-Based Recruiting Reel Actually Looks Like.",
+      s: "We've described this in a lot of emails. It's easier to just show you — then talk through what your player's would look like."
+    }
+  };
+  try{
+    var key = new URLSearchParams(location.search).get('a');
+    if(key && Object.prototype.hasOwnProperty.call(VARIANTS, key)){
+      document.getElementById('hl').textContent  = VARIANTS[key].h;
+      document.getElementById('sub').textContent = VARIANTS[key].s;
+    }
+  }catch(e){}
+
+  /* ---------------------------------------------------------
+     2. DELIVERABLE EXAMPLE CLICKS
+        These all open off-site, so track them: if people are
+        clicking examples but not booking, the examples are the
+        leak. If nobody clicks, they aren't pulling their weight.
+     --------------------------------------------------------- */
+  [].forEach.call(document.querySelectorAll('[data-example]'), function(a){
+    a.addEventListener('click', function(){
+      if(window.fbq) fbq('trackCustom','ExampleViewed',{
+        example: a.getAttribute('data-example')
+      });
+    });
+  });
+
+  /* ---------------------------------------------------------
+     3. REVIEWS SCROLLER
+     --------------------------------------------------------- */
+  var scroller = document.getElementById('revScroller');
+  function nudge(dir){
+    var card = scroller.querySelector('.review-card');
+    var step = card ? card.getBoundingClientRect().width + 20 : 340;
+    scroller.scrollBy({ left: dir * step, behavior:'smooth' });
+  }
+  document.getElementById('revPrev').addEventListener('click', function(){ nudge(-1); });
+  document.getElementById('revNext').addEventListener('click', function(){ nudge(1); });
+
+  /* ---------------------------------------------------------
+     4. VSL 50% WATCH -> ViewContent
+        Optimize the campaign on THIS event early, while Schedule
+        volume is too low to exit the learning phase.
+     --------------------------------------------------------- */
+  var fired = false;
+  function halfway(){
+    if(fired) return;
+    fired = true;
+    if(window.fbq) fbq('track','ViewContent',{
+      content_name:'retargeting_vsl', content_category:'vsl_50_percent'
+    });
+  }
+  function attach(el){
+    if(!el) return;
+    el.addEventListener('timeupdate', function(){
+      var d = el.duration, t = el.currentTime;
+      if(d && isFinite(d) && t / d >= .5) halfway();
+    });
+  }
+  attach(document.getElementById('vsl'));
+
+  /* ---------------------------------------------------------
+     5. CALENDLY -> Schedule event
+        The inline widget posts a message when a booking completes.
+        No redirect page required.
+     --------------------------------------------------------- */
+  window.addEventListener('message', function(e){
+    if(!e.data || typeof e.data.event !== 'string') return;
+    if(e.data.event.indexOf('calendly') !== 0) return;
+
+    if(e.data.event === 'calendly.event_scheduled'){
+      if(!USE_REDIRECT_PAGE && window.fbq){
+        fbq('track','Schedule',{ content_name:'retargeting_call' });
+      }
+    }
+  });
+
+  /* ---------------------------------------------------------
+     6. Soft intent signal — reached the booking widget
+     --------------------------------------------------------- */
+  var bookSec = document.getElementById('book');
+  if('IntersectionObserver' in window && bookSec){
+    var seen = false;
+    var io2 = new IntersectionObserver(function(en){
+      if(en[0].isIntersecting && !seen){
+        seen = true;
+        if(window.fbq) fbq('trackCustom','ReachedBooking');
+        io2.disconnect();
+      }
+    }, { threshold:.3 });
+    io2.observe(bookSec);
+  }
+})();
+</script>
+</body>
+</html>

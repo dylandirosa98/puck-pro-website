@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're Booked | Puck Pro Media</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ============================================================
+       META PIXEL — SAME ID AS THE LANDING PAGE
+       ============================================================ -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '000000000000000');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=000000000000000&ev=PageView&noscript=1"/></noscript>
+
+<style>
+/* Self-contained. Black and white only. */
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Montserrat',system-ui,-apple-system,sans-serif;
+  background:#000;color:#fff;
+  font-size:17px;line-height:1.7;
+  min-height:100vh;display:flex;flex-direction:column;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid #fff;outline-offset:4px}
+
+.container{max-width:1160px;margin:0 auto;padding:0 clamp(20px,5vw,48px);width:100%}
+
+main{flex:1;display:flex;align-items:center;padding:clamp(56px,9vw,110px) 0;text-align:center}
+
+.hero-logo{display:inline-block;margin-bottom:34px}
+.hero-logo img{height:clamp(46px,6vw,64px);width:auto}
+
+.badge{
+  display:inline-block;border:1px solid rgba(255,255,255,.4);
+  font-size:.71rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.16em;
+  padding:9px 15px;margin-bottom:26px;
+}
+h1{
+  font-family:'Poppins',sans-serif;font-weight:900;
+  font-size:clamp(2rem,5.2vw,3.5rem);
+  line-height:1.02;letter-spacing:-.022em;
+  max-width:15ch;margin:0 auto;
+}
+.sub{
+  font-size:1.05rem;line-height:1.72;
+  color:rgba(255,255,255,.68);
+  max-width:54ch;margin:24px auto 0;
+}
+
+.tips{
+  border:1px solid rgba(255,255,255,.22);
+  padding:clamp(26px,4vw,36px);
+  max-width:620px;margin:44px auto 0;text-align:left;
+}
+.tips h2{
+  font-family:'Poppins',sans-serif;font-weight:800;
+  font-size:1.02rem;line-height:1.35;color:#fff;
+  margin-bottom:20px;text-align:center;
+}
+.tips ol{list-style:none;counter-reset:t;display:grid;gap:18px}
+.tips li{
+  counter-increment:t;
+  display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;
+  font-size:.96rem;line-height:1.65;color:rgba(255,255,255,.7);
+}
+.tips li::before{
+  content:counter(t);
+  font-family:'Poppins',sans-serif;font-weight:900;
+  font-size:1.05rem;color:#fff;line-height:1.5;
+}
+
+.tail{
+  margin-top:40px;padding-top:26px;
+  border-top:1px solid rgba(255,255,255,.18);
+  font-size:.89rem;line-height:1.65;
+  color:rgba(255,255,255,.5);max-width:56ch;margin-left:auto;margin-right:auto;
+}
+.tail a{color:#fff;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4)}
+.tail a:hover{border-color:#fff}
+
+.footer{
+  border-top:1px solid rgba(255,255,255,.12);
+  padding:30px 0 40px;color:rgba(255,255,255,.45);font-size:.85rem;text-align:center;
+}
+
+@media (max-width:600px){ body{font-size:16px} }
+</style>
+</head>
+<body>
+
+<main>
+  <div class="container">
+    <a class="hero-logo" href="https://www.puckpromedia.com/" target="_blank" rel="noopener">
+      <img src="https://www.puckpromedia.com/logo-white.png" alt="Puck Pro Media" />
+    </a>
+
+    <div>
+      <span class="badge">Confirmed</span>
+    </div>
+
+    <h1>You're on the calendar.</h1>
+
+    <p class="sub">A confirmation should be in your inbox with details &mdash; we'll reach out beforehand too.</p>
+
+    <div class="tips">
+      <h2>2 ways to make the call go even better</h2>
+      <ol>
+        <li>Send your schedule ahead of time and we'll come to the call with a general plan of availability.</li>
+        <li>If you're looking for a custom package, let us know and we'll send over some options to build your own.</li>
+      </ol>
+    </div>
+
+    <div class="tail">
+      Need to move it? The reschedule link is in your confirmation email. Anything comes up before then &mdash; reply to that email or text <a href="tel:8562697579">(856) 269-7579</a>.
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">&copy; 2026 Puck Pro Media LLC</div>
+</footer>
+
+<script>
+/* ------------------------------------------------------------
+   SCHEDULE EVENT
+   Only fires if you turned ON Calendly's "redirect to a custom
+   page" AND set USE_REDIRECT_PAGE = true on the landing page.
+   Otherwise the landing page fires it inside the embed and this
+   page must NOT fire it too, or bookings count twice.
+   ------------------------------------------------------------ */
+(function(){
+  var eid = null;
+  try{
+    var p = new URLSearchParams(location.search);
+    eid = p.get('invitee_uuid') || p.get('event_id') || null;
+  }catch(e){ eid = null; }
+
+  if(window.fbq){
+    if(eid){
+      fbq('track','Schedule',{ content_name:'retargeting_call' },{ eventID: eid });
+    } else {
+      fbq('track','Schedule',{ content_name:'retargeting_call' });
+    }
+  }
+})();
+</script>
+</body>
+</html>
