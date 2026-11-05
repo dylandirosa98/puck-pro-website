@@ -57,7 +57,8 @@ window.submitPuckProForm = async function submitPuckProForm(form, formType) {
 
   form.querySelectorAll('input, textarea, select').forEach((field) => {
     if (!field.id && !field.name) return;
-    if (field.type === 'hidden' || field.disabled) return;
+    // Questionnaire answers are stored in hidden inputs; only skip routing metadata.
+    if (field.name === 'form-name' || field.disabled) return;
 
     const key = field.name || field.id.replace(/^[a-z]+-/, '');
     if (field.type === 'checkbox') {

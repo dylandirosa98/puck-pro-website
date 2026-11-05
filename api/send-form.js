@@ -105,6 +105,14 @@ module.exports = async function handler(req, res) {
       data = responseText ? JSON.parse(responseText) : {};
     } catch (_) {}
 
+    console.info('Form email accepted by Resend', {
+      emailId: data.id,
+      formType,
+      populatedFields: Object.entries(fields)
+        .filter(([_, value]) => value !== '' && value !== null && value !== undefined)
+        .map(([key]) => key),
+    });
+
     return res.status(200).json({ ok: true, id: data.id });
   } catch (error) {
     console.error('Resend request failed before acceptance', error);
