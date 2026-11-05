@@ -648,7 +648,7 @@
   function updateProgress(stepId) {
     var bar = document.getElementById('progress-bar');
     // Hide progress on org/calendly/done paths
-    var hide = ['3','calendly','done'].indexOf(String(stepId)) !== -1;
+    var hide = ['calendly','done'].indexOf(String(stepId)) !== -1;
     bar.style.display = hide ? 'none' : 'flex';
     if (hide) return;
 
@@ -711,7 +711,7 @@
     clearSelected('s3-choices');
     btn.classList.add('selected');
     state.mainReason = btn.getAttribute('data-val');
-    setTimeout(function () { show('calendly'); }, 180);
+    setTimeout(function () { show('10'); }, 180);
   };
 
   /* ── Step 4 ── */
