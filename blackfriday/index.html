@@ -19,58 +19,12 @@
       color: #fff;
     }
 
-    /* ── NAV ── */
-    #nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(10,10,10,0.95);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding: 0 24px;
-    }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
-    .nav-logo img { height: 44px; }
-    .nav-links { display: flex; gap: 32px; align-items: center; }
-    .nav-links a {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600; font-size: .85rem;
-      letter-spacing: .05em; text-transform: uppercase;
-      color: rgba(255,255,255,.75); text-decoration: none;
-      transition: color .15s;
-    }
-    .nav-links a:hover { color: #fff; }
-    .nav-hamburger {
-      display: none; background: none; border: none;
-      cursor: pointer; padding: 4px; flex-direction: column; gap: 5px;
-    }
-    .nav-hamburger span {
-      display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px;
-    }
-    .nav-mobile {
-      display: none; flex-direction: column; gap: 0;
-      background: #0A0A0A; border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 8px 0 16px;
-    }
-    .nav-mobile a {
-      font-family: 'Montserrat', sans-serif; font-weight: 600;
-      font-size: .85rem; letter-spacing: .05em; text-transform: uppercase;
-      color: rgba(255,255,255,.75); text-decoration: none;
-      padding: 12px 24px; display: block;
-    }
-    .nav-mobile.open { display: flex; }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-    }
-
     /* ── HERO ── */
     .bf-hero {
       min-height: 100vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center;
-      padding: 120px 24px 80px;
+      padding: 80px 24px 80px;
       background: #0A0A0A;
       position: relative;
       overflow: hidden;
@@ -292,6 +246,7 @@
       font-family: 'Poppins', sans-serif;
       font-weight: 900; font-size: clamp(1.6rem, 4vw, 2.6rem);
       line-height: 1.1; color: #fff; margin-bottom: 24px;
+      text-transform: uppercase;
     }
 
     /* ── WHO IT'S FOR ── */
@@ -381,10 +336,6 @@
       padding: 80px 24px;
     }
     .wwd-inner { max-width: 1000px; margin: 0 auto; }
-    .wwd-intro {
-      font-size: 1rem; color: rgba(255,255,255,.6);
-      max-width: 600px; line-height: 1.65; margin-bottom: 48px;
-    }
     .wwd-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -404,20 +355,6 @@
       font-size: .88rem; color: rgba(255,255,255,.55);
       line-height: 1.6;
     }
-    .wwd-cta {
-      display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
-    }
-    .wwd-btn-primary {
-      display: inline-block;
-      background: #fff; color: #0A0A0A;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700; font-size: .9rem;
-      letter-spacing: .05em; text-transform: uppercase;
-      text-decoration: none;
-      padding: 14px 28px; border-radius: 4px;
-      transition: background .15s;
-    }
-    .wwd-btn-primary:hover { background: #e0e0e0; }
     .wwd-social {
       display: flex; gap: 16px;
     }
@@ -449,25 +386,6 @@
 </head>
 <body>
 
-<!-- ── NAV ── -->
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo"><img src="/logo-white.png" alt="PuckPro Media" /></a>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/#our-work">Our Work</a>
-      <a href="/book/">Work with PuckPro</a>
-    </div>
-    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="nav-mobile" id="mobileMenu">
-    <a href="/">Home</a>
-    <a href="/#our-work">Our Work</a>
-    <a href="/book/">Work with PuckPro</a>
-  </div>
-</nav>
 
 <!-- ── HERO ── -->
 <section class="bf-hero">
@@ -729,8 +647,7 @@
 <section class="what-we-do">
   <div class="wwd-inner">
     <p class="section-label">What We Do</p>
-    <h2 class="section-heading">What we do.</h2>
-    <p class="wwd-intro">Our videographers come film your games and deliver 4K quality footage — plus a variety of edited content personalized to your use case.</p>
+    <h2 class="section-heading">We film your hockey games in 4K quality and edit highlight videos.</h2>
 
     <div class="wwd-grid">
       <div class="wwd-card">
@@ -760,7 +677,6 @@
     </div>
 
     <div class="wwd-cta">
-      <a href="/#our-work" class="wwd-btn-primary">See Our Work →</a>
       <div class="wwd-social">
         <a href="https://www.instagram.com/puckpromedia" target="_blank" class="wwd-social-link">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
