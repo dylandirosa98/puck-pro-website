@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800;900&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
   <style>
-    /* ── Page-specific overrides ── */
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -72,15 +71,14 @@
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center;
       padding: 120px 24px 80px;
-      background: radial-gradient(ellipse at 50% 0%, rgba(255,60,0,.12) 0%, transparent 70%), #0A0A0A;
+      background: #0A0A0A;
       position: relative;
       overflow: hidden;
     }
     .bf-hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: url('/hero-bg.jpg') center/cover no-repeat;
-      opacity: 0.08;
+      background: linear-gradient(135deg, #111 0%, #0A0A0A 50%, #1a1a1a 100%);
       z-index: 0;
     }
     .bf-hero > * { position: relative; z-index: 1; }
@@ -90,8 +88,8 @@
       font-family: 'Montserrat', sans-serif;
       font-weight: 700; font-size: .75rem;
       letter-spacing: .15em; text-transform: uppercase;
-      color: #FF4500;
-      border: 1px solid rgba(255,69,0,.4);
+      color: rgba(255,255,255,.6);
+      border: 1px solid rgba(255,255,255,.2);
       padding: 6px 16px; border-radius: 2px;
       margin-bottom: 28px;
     }
@@ -106,7 +104,6 @@
       max-width: 820px;
       margin: 0 auto 24px;
     }
-    .bf-headline span { color: #FF4500; }
 
     .bf-subhead {
       font-size: 1.1rem; font-weight: 400; color: rgba(255,255,255,.65);
@@ -127,12 +124,12 @@
     }
     .reveal-badge-dot {
       width: 8px; height: 8px; border-radius: 50%;
-      background: #FF4500;
+      background: #fff;
       animation: pulse 1.8s ease-in-out infinite;
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .5; transform: scale(.7); }
+      50% { opacity: .35; transform: scale(.7); }
     }
 
     /* ── WAITLIST FORM ── */
@@ -175,10 +172,10 @@
       width: 100%;
     }
     .wl-field input::placeholder { color: rgba(255,255,255,.3); }
-    .wl-field input:focus { border-color: #FF4500; }
+    .wl-field input:focus { border-color: rgba(255,255,255,.5); }
     .wl-submit {
       width: 100%;
-      background: #FF4500; color: #fff;
+      background: #fff; color: #0A0A0A;
       border: none; border-radius: 4px;
       padding: 15px 24px;
       font-family: 'Montserrat', sans-serif;
@@ -187,7 +184,7 @@
       cursor: pointer; transition: background .15s;
       margin-top: 8px;
     }
-    .wl-submit:hover { background: #e03d00; }
+    .wl-submit:hover { background: #e0e0e0; }
     .wl-privacy {
       font-size: .75rem; color: rgba(255,255,255,.35);
       text-align: center; margin-top: 12px; line-height: 1.5;
@@ -234,20 +231,22 @@
     }
     @media (max-width: 600px) { .proof-divider { display: none; } }
 
-    /* ── WHY LIMITED ── */
-    .why-section {
-      padding: 80px 24px;
-      max-width: 900px; margin: 0 auto;
-    }
+    /* ── SECTION SHARED ── */
     .section-label {
       font-size: .75rem; font-weight: 700;
       letter-spacing: .15em; text-transform: uppercase;
-      color: #FF4500; margin-bottom: 16px;
+      color: rgba(255,255,255,.45); margin-bottom: 16px;
     }
     .section-heading {
       font-family: 'Poppins', sans-serif;
       font-weight: 900; font-size: clamp(1.6rem, 4vw, 2.6rem);
       line-height: 1.1; color: #fff; margin-bottom: 24px;
+    }
+
+    /* ── WHY LIMITED ── */
+    .why-section {
+      padding: 80px 24px;
+      max-width: 900px; margin: 0 auto;
     }
     .why-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -262,7 +261,7 @@
     .why-card-num {
       font-family: 'Poppins', sans-serif;
       font-weight: 900; font-size: 2rem;
-      color: #FF4500; margin-bottom: 12px;
+      color: rgba(255,255,255,.2); margin-bottom: 12px;
     }
     .why-card h3 {
       font-weight: 700; font-size: 1rem;
@@ -289,7 +288,8 @@
     }
     .for-check {
       width: 20px; height: 20px; border-radius: 50%;
-      background: #FF4500;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; margin-top: 2px;
       font-size: .7rem; color: #fff; font-weight: 700;
@@ -353,8 +353,6 @@
       font-size: .85rem; color: rgba(255,255,255,.6);
       line-height: 1.65;
     }
-
-    /* google G icon */
     .bf-google-g { margin-left: auto; flex-shrink: 0; }
 
     /* ── BOTTOM CTA ── */
@@ -407,7 +405,7 @@
 <!-- ── HERO ── -->
 <section class="bf-hero">
   <span class="bf-eyebrow">Black Friday 2026 · PuckPro Media</span>
-  <h1 class="bf-headline">A major Black Friday opportunity<br>for <span>hockey families</span> is coming.</h1>
+  <h1 class="bf-headline">A major Black Friday opportunity<br>for hockey families is coming.</h1>
   <p class="bf-subhead">We're not ready to reveal the details just yet — but it's the most aggressive offer we've ever run. Join the waitlist to be the first to know when it goes live.</p>
 
   <div class="reveal-badge">
@@ -627,7 +625,7 @@
 
 <!-- ── BOTTOM CTA ── -->
 <section class="bottom-cta">
-  <h2 class="bf-headline">Don't miss it.<br><span>Offer details drop November 27th.</span></h2>
+  <h2 class="bf-headline">Don't miss it.<br>Offer details drop November 27th.</h2>
   <p class="bf-subhead">Join the waitlist now and we'll reach out the moment it goes live — before we open it to the public.</p>
   <div class="waitlist-wrap" style="margin:0 auto;">
     <form name="bf-waitlist-bottom" id="wlFormBottom" data-netlify="true" netlify-honeypot="bot-field">
@@ -669,7 +667,6 @@
 </footer>
 
 <script>
-  // Waitlist form submissions
   function handleWlSubmit(formId, successId) {
     var form = document.getElementById(formId);
     if (!form) return;
