@@ -350,9 +350,49 @@
     .footer img { height: 30px; margin-bottom: 10px; opacity: .5; }
     .footer p { font-size: .75rem; color: rgba(255,255,255,.2); }
 
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
+      /* Hero typography — make headline dominant on mobile */
+      .hero-headline {
+        font-size: 2rem;
+        line-height: 1.12;
+      }
+      .hero-normally {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+      }
+      .hero-sub {
+        font-size: .95rem;
+      }
+
+      /* Hero spacing */
+      .hero { padding: 44px 20px 48px; }
+      .eyebrow { font-size: .7rem; margin-bottom: 20px; }
+
+      /* CTA button full-width on mobile */
+      .btn-primary {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 18px 24px;
+        font-size: .95rem;
+      }
+
+      /* Countdown bar — stack label above units */
+      .countdown-bar { gap: 12px; padding: 10px 16px; }
+      .cd-label-top { font-size: .68rem; text-align: center; white-space: normal; }
+      .cd-block { min-width: 44px; padding: 5px 8px 3px; }
+      .cd-num { font-size: 1.1rem; }
+
+      /* Deal cards stack */
       .deal-card:first-child { border-radius: 4px 4px 0 0; }
       .deal-card:last-child  { border-radius: 0 0 4px 4px; }
+
+      /* Section headings */
+      .section-heading { font-size: 1.5rem; margin-bottom: 32px; }
+      .deal-section { padding: 60px 20px; }
+      .reviews-section { padding: 60px 20px; }
+      .bottom-cta { padding: 60px 20px 80px; }
+      .bottom-cta .section-heading { font-size: 1.4rem; }
     }
   </style>
 </head>
