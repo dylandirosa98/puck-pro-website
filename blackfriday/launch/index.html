@@ -119,16 +119,13 @@
     .hero-headline {
       font-family: 'Poppins', sans-serif;
       font-weight: 900;
-      font-size: clamp(1.6rem, 4.5vw, 3.2rem);
+      font-size: clamp(1.5rem, 3.8vw, 3rem);
       line-height: 1.1;
       letter-spacing: -.01em;
       color: #fff;
       margin-bottom: 20px;
-      max-width: 900px;
-      white-space: nowrap;
-    }
-    @media (max-width: 700px) {
-      .hero-headline { white-space: normal; font-size: clamp(1.4rem, 6vw, 2rem); }
+      max-width: 820px;
+      text-transform: uppercase;
     }
     .hero-headline .strike {
       text-decoration: line-through;
@@ -139,14 +136,12 @@
     .hero-sub {
       font-family: 'Poppins', sans-serif;
       font-weight: 900;
-      font-size: clamp(1.3rem, 3.5vw, 2.2rem);
-      color: rgba(255,255,255,.75);
+      font-size: clamp(1.1rem, 2.8vw, 1.9rem);
+      color: rgba(255,255,255,.65);
       margin-bottom: 36px;
       letter-spacing: -.01em;
-      white-space: nowrap;
-    }
-    @media (max-width: 600px) {
-      .hero-sub { white-space: normal; font-size: clamp(1.1rem, 5vw, 1.6rem); }
+      text-transform: uppercase;
+      max-width: 820px;
     }
 
     /* ── VSL ── */
@@ -352,9 +347,9 @@
 
   <!-- TOP BAR: logo + countdown -->
   <div style="background:#0A0A0A; border-bottom:1px solid rgba(255,255,255,.07);">
-    <div style="max-width:900px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
-      <img src="/logo-white.png" alt="PuckPro Media" style="height:28px; opacity:.85;" />
-      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+    <div style="max-width:960px; margin:0 auto; padding:18px 24px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+      <img src="/logo-white.png" alt="PuckPro Media" style="height:36px; opacity:.9;" />
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center;">
         <span class="cd-label-top">Offer closes Nov 27 at 11:59 PM EST</span>
         <div class="cd-units" id="countdownWrap">
           <div class="cd-block"><span class="cd-num" id="cd-d">00</span><span class="cd-unit">Days</span></div>
