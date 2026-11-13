@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black Friday — PuckPro Media</title>
+  <meta name="description" content="5 games professionally filmed. Price of 2. Book 2 games, get 3 free — only available November 25–27." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800;900&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0A0A0A;
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #111 0%, #0A0A0A 50%, #1a1a1a 100%);
+      z-index: 0;
+    }
+    .hero > * { position: relative; z-index: 1; }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800; font-size: .85rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 8px 20px; border-radius: 2px;
+      margin-bottom: 36px;
+    }
+
+    .hero-headline {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 10vw, 7rem);
+      line-height: 1;
+      letter-spacing: -.02em;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-weight: 600;
+      color: rgba(255,255,255,.65);
+      max-width: 520px;
+      line-height: 1.5;
+      margin-bottom: 48px;
+    }
+
+    /* ── COUNTDOWN ── */
+    .countdown-wrap {
+      display: flex; gap: 8px; align-items: flex-end;
+      margin-bottom: 48px;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .cd-block {
+      display: flex; flex-direction: column; align-items: center;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 4px;
+      padding: 16px 20px 12px;
+      min-width: 72px;
+    }
+    .cd-num {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1;
+      color: #fff;
+      letter-spacing: -.02em;
+    }
+    .cd-label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-top: 6px;
+    }
+    .cd-sep {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: rgba(255,255,255,.25);
+      margin-bottom: 20px;
+    }
+    .countdown-label {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 48px;
+    }
+    .countdown-expired {
+      display: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 48px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    /* ── PRICE BADGE ── */
+    .price-wrap {
+      display: flex; align-items: baseline; gap: 16px;
+      justify-content: center;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .price-original {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: rgba(255,255,255,.25);
+      text-decoration: line-through;
+      text-decoration-thickness: 3px;
+    }
+    .price-deal {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      color: #fff;
+      line-height: 1;
+    }
+    .price-note {
+      font-size: .85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.45);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    /* ── CTA ── */
+    .btn-primary {
+      display: inline-block;
+      background: #fff;
+      color: #0A0A0A;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 20px 48px;
+      border-radius: 3px;
+      transition: opacity .15s;
+      margin-bottom: 20px;
+    }
+    .btn-primary:hover { opacity: .88; }
+
+    .cta-fine {
+      font-size: .78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.35);
+      letter-spacing: .05em;
+    }
+
+    /* ── DEAL SECTION ── */
+    .deal-section {
+      padding: 100px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: .78rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 16px;
+    }
+
+    .section-heading {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 4.5vw, 3rem);
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 48px;
+      text-transform: uppercase;
+    }
+
+    .deal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2px;
+      margin-bottom: 64px;
+    }
+
+    .deal-card {
+      background: #111;
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 32px 28px;
+    }
+    .deal-card:first-child { border-radius: 4px 0 0 4px; }
+    .deal-card:last-child { border-radius: 0 4px 4px 0; }
+
+    .deal-card-num {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: rgba(255,255,255,.12);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .deal-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+    .deal-card p {
+      font-size: .9rem;
+      font-weight: 400;
+      color: rgba(255,255,255,.55);
+      line-height: 1.65;
+    }
+    .deal-card .tag {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.5);
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+    .deal-card .tag.included {
+      border-color: rgba(255,255,255,.35);
+      color: rgba(255,255,255,.75);
+    }
+
+    /* ── TERMS ── */
+    .terms-block {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 40px;
+      margin-bottom: 64px;
+    }
+    .terms-block h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: .78rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 20px;
+    }
+    .terms-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .terms-list li {
+      font-size: .88rem;
+      color: rgba(255,255,255,.45);
+      line-height: 1.6;
+      padding-left: 20px;
+      position: relative;
+    }
+    .terms-list li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: rgba(255,255,255,.2);
+    }
+
+    /* ── BOTTOM CTA ── */
+    .bottom-cta {
+      text-align: center;
+      padding: 80px 24px 100px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .bottom-cta .section-heading {
+      max-width: 640px;
+      margin: 0 auto 16px;
+    }
+    .bottom-cta .sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 40px;
+      font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .footer-logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.35);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .footer-copy {
+      font-size: .75rem;
+      color: rgba(255,255,255,.2);
+      margin-top: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .deal-card:first-child { border-radius: 4px 4px 0 0; }
+      .deal-card:last-child { border-radius: 0 0 4px 4px; }
+      .price-wrap { flex-direction: column; align-items: center; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="eyebrow">Black Friday 2026 — PuckPro Media</span>
+
+    <h1 class="hero-headline">5 Games.<br>Price of 2.</h1>
+
+    <p class="hero-sub">Book 2 games, get 3 completely free. 4K quality footage, dedicated videographer, your player in focus — every shift.</p>
+
+    <!-- Countdown -->
+    <div class="countdown-wrap" id="countdownWrap">
+      <div class="cd-block"><span class="cd-num" id="cd-d">00</span><span class="cd-label">Days</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cd-h">00</span><span class="cd-label">Hours</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cd-m">00</span><span class="cd-label">Min</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cd-s">00</span><span class="cd-label">Sec</span></div>
+    </div>
+    <p class="countdown-label" id="countdownLabel">Offer closes November 27th at 11:59 PM EST</p>
+    <p class="countdown-expired" id="countdownExpired">This offer has ended.</p>
+
+    <!-- Price -->
+    <div class="price-wrap">
+      <span class="price-original">$2,250</span>
+      <span class="price-deal">$900</span>
+    </div>
+    <p class="price-note" style="margin-bottom:40px;">5 games &nbsp;·&nbsp; Save $1,350</p>
+
+    <!-- CTA -->
+    <a href="https://buy.stripe.com/fZu3cw1wt3PudkDcGmeUV0k" target="_blank" class="btn-primary" id="heroCta">Lock In My Spot →</a>
+    <p class="cta-fine">New customers only &nbsp;·&nbsp; Limited spots available</p>
+  </section>
+
+  <!-- DEAL BREAKDOWN -->
+  <section class="deal-section">
+    <p class="section-label">What's Included</p>
+    <h2 class="section-heading">Here's exactly what you get.</h2>
+
+    <div class="deal-grid">
+      <div class="deal-card">
+        <div class="deal-card-num">01</div>
+        <span class="tag included">Included</span>
+        <h3>2 Paid Games</h3>
+        <p>Two games filmed in 4K with a dedicated PuckPro videographer focused exclusively on your player. Every shift, every moment.</p>
+      </div>
+      <div class="deal-card">
+        <div class="deal-card-num">02</div>
+        <span class="tag included">Free — $1,350 value</span>
+        <h3>3 Bonus Games</h3>
+        <p>Three additional games filmed at no extra cost. Use them however you want throughout the season — just schedule before January 31st.</p>
+      </div>
+      <div class="deal-card">
+        <div class="deal-card-num">03</div>
+        <span class="tag">Optional Add-On</span>
+        <h3>Recruiting Video</h3>
+        <p>A 3–5 minute highlight reel with custom intro, organized by skill categories, with slo-mo and clean transitions. Coach-ready format. Add for $600.</p>
+      </div>
+    </div>
+
+    <div class="terms-block">
+      <h4>Terms &amp; Details</h4>
+      <ul class="terms-list">
+        <li>Offer available November 25–27, 2026 only. Closes 11:59 PM EST on November 27th.</li>
+        <li>New customers only.</li>
+        <li>The 3 free bonus games must be scheduled and used by January 31, 2027. Unused bonus games expire.</li>
+        <li>Your 2 paid games are yours to use at any time, no expiration.</li>
+        <li>Scheduling is first come, first served. Availability varies by location.</li>
+        <li>New Jersey coverage area. Contact us before booking if you're unsure about your area.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <p class="section-label">Limited Spots</p>
+    <h2 class="section-heading">Don't wait. This closes Friday at midnight.</h2>
+    <p class="sub">$900 total. 5 games. Only available this weekend.</p>
+    <a href="https://buy.stripe.com/fZu3cw1wt3PudkDcGmeUV0k" target="_blank" class="btn-primary" id="bottomCta">Lock In My Spot →</a>
+    <p class="cta-fine" style="margin-top:16px;">New customers only &nbsp;·&nbsp; Closes Nov 27 at 11:59 PM EST</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">PuckPro Media</div>
+    <p class="footer-copy">&copy; 2026 PuckPro Media. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Countdown to Nov 27, 2026 11:59:59 PM EST
+    var deadline = new Date('2026-11-28T04:59:59Z'); // 11:59 PM EST = 04:59 UTC next day
+
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+    function tick() {
+      var now = new Date();
+      var diff = deadline - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdownWrap').style.display = 'none';
+        document.getElementById('countdownLabel').style.display = 'none';
+        document.getElementById('countdownExpired').style.display = 'block';
+        // Optionally disable CTAs when expired
+        // document.getElementById('heroCta').style.pointerEvents = 'none';
+        // document.getElementById('bottomCta').style.pointerEvents = 'none';
+        return;
+      }
+
+      var days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('cd-d').textContent = pad(days);
+      document.getElementById('cd-h').textContent = pad(hours);
+      document.getElementById('cd-m').textContent = pad(mins);
+      document.getElementById('cd-s').textContent = pad(secs);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  </script>
+
+</body>
+</html>
